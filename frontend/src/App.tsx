@@ -2,10 +2,22 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios';
+
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const spreadsheetId = '1BSPWxZs7lfkF1YaZiA0Pv2NxOpuDL2qH3x0RPHl8yN8'
+
+  var instance = axios.create({
+    baseURL: 'https://api.fureweb.com',
+  })
+
+  instance.get(`/spreadsheets/${spreadsheetId}`)
+  .then((res) =>{
+    console.log(res.data)
+  })
   return (
     <>
       <div>
