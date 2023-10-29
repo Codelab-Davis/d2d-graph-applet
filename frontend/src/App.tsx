@@ -16,7 +16,7 @@ function App() {
 
   instance.get(`/spreadsheets/${spreadsheetId}`)
   .then((res) =>{
-    console.log(res.data)
+    console.log(res.data.data)
   })
   return (
     <>
