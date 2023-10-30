@@ -1,46 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState,useEffect } from 'react'
+import axios from 'axios'
+
 import './App.css'
-import axios from 'axios';
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sheetId, setSheetId] = useState("hi")
+  const [sum, setSum] = useState(0)
 
-  const spreadsheetId = '1BSPWxZs7lfkF1YaZiA0Pv2NxOpuDL2qH3x0RPHl8yN8'
+  const click = () => {
+    let temp = 0; 
+    var instance = axios.create({
+      baseURL: 'https://api.fureweb.com',
+    })
+    
+    instance.get(`/spreadsheets/${sheetId}`)
+      .then((res) => {
+        for (let count = 0; count < res.data.data.length; count++) {
+          temp += res.data.data[count]['a']
+          
+          console.log(res.data.data[count]['a']);
+        }
+        setSum(temp);
+        console.log(temp);
+      })
+    return temp;
+  }
+  // const spreadsheetId = '10WDbAPAY7Xl5DT36VuMheTPTTpqx9x0C5sDCnh4BGps'
 
-  var instance = axios.create({
-    baseURL: 'https://api.fureweb.com',
-  })
+  const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSheetId(event.target.value)
+  }
+  
 
-  instance.get(`/spreadsheets/${spreadsheetId}`)
-  .then((res) =>{
-    console.log(res.data.data)
-  })
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className = "App">
+      <input onChange = {change}
+      value = {sheetId}/>
+      <button onClick =  {click}> sum is {sum}
+      
+      </button>
+    
+    </div>
   )
 }
 
