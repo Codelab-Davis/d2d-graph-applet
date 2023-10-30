@@ -1,35 +1,35 @@
-import { useState,useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react';
 
-import './App.css'
+import './App.css';
 
 
 function App() {
-  const [sheetId, setSheetId] = useState("hi")
-  const [sum, setSum] = useState(0)
+  const [sheetId, setSheetId] = useState("hi");
+  const [sum, setSum] = useState(0);
 
   const click = () => {
     let temp = 0; 
-    var instance = axios.create({
-      baseURL: 'https://api.fureweb.com',
-    })
     
-    instance.get(`/spreadsheets/${sheetId}`)
-      .then((res) => {
-        for (let count = 0; count < res.data.data.length; count++) {
-          temp += res.data.data[count]['a']
+    fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
+      method: "GET"
+    })
+      .then(response => response.json())
+      .then(data => {
+        for (let count = 0; count < data.data.length; count++) {
+          temp += data.data[count]['a'];
           
-          console.log(res.data.data[count]['a']);
+          console.log(data.data[count]['a']);
         }
         setSum(temp);
         console.log(temp);
       })
+      .catch(error => console.error(error))
     return temp;
   }
   // const spreadsheetId = '10WDbAPAY7Xl5DT36VuMheTPTTpqx9x0C5sDCnh4BGps'
 
   const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSheetId(event.target.value)
+    setSheetId(event.target.value);
   }
   
 
