@@ -4,7 +4,8 @@ import './App.css';
 
 
 function App() {
-  const [sheetId, setSheetId] = useState("hi");
+  const [sheetId, setSheetId] = useState("");
+  const [sheetURL, setSheetURL] = useState("Type Sheet URL Here");
   const [sum, setSum] = useState(0);
 
   const click = () => {
@@ -17,7 +18,7 @@ function App() {
       .then(response => response.json())
       .then(data => {
         for (let count = 0; count < data.data.length; count++) {
-          //temp += data.data[count]['a'];
+          temp += data.data[count]['A1'];
           let timeObject = data.data[count]['Time'];
           timeObject = timeObject.split(",");
           
@@ -29,6 +30,7 @@ function App() {
 
           // print cell A1, repeat for other cells
           console.log(data.data[count]['A1']);
+          // need error handling for input of wrong google sheet
         }
         setSum(temp);
         console.log(temp);
@@ -40,7 +42,9 @@ function App() {
   // const spreadsheetId = '10WDbAPAY7Xl5DT36VuMheTPTTpqx9x0C5sDCnh4BGps'
 
   const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSheetId(event.target.value);
+    // parse url for sheetId
+    setSheetURL(event.target.value);
+    setSheetId(event.target.value.split('/')[5]);
   }
   
 
@@ -48,7 +52,7 @@ function App() {
     <div className = "App">
       <h1>D2D</h1>
       <input onChange = {change}
-      value = {sheetId}/>
+      value = {sheetURL}/>
       <button onClick =  {click}> sum is {sum}
       
       </button>
