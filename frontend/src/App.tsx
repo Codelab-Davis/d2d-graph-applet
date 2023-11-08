@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import './App.css';
+import LandingPage from './LandingPage';
 
 
 function App() {
@@ -49,7 +50,8 @@ function App() {
   
 
   return (
-    <div className = "App">
+    <div className='App'>
+      <LandingPage></LandingPage>
       <h1>D2D</h1>
       <input onChange = {change}
       value = {sheetURL}/>
