@@ -50,7 +50,7 @@ function App() {
   
 
   return (
-    <div className='App'>
+    <div className='w-screen justify-center'>
       <LandingPage></LandingPage>
       <h1>D2D</h1>
       <input onChange = {change}
