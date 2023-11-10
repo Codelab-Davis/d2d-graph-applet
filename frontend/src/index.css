@@ -10,9 +10,30 @@
 @layer base {
   h1 {
     @apply text-4xl;
-    font-family: Manrope, system-ui, sans-serif;
+    @apply font-manrope;
     @apply font-bold;
+  }
+  h2 {
+    @apply text-[27px];
+    @apply font-manrope;
+    @apply font-extrabold;
+  }
+  body {
+    @apply font-manrope;
   }  
+}
+
+@layer utilities {
+  .table-header {
+    @apply text-base;    
+    @apply font-inter;
+    @apply font-bold;
+  }
+  .numbers {
+    @apply text-base;
+    @apply font-inter;
+    @apply font-normal;
+  }
 }
 
 
