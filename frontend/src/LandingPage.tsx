@@ -3,7 +3,7 @@ function LandingPage() {
         console.log("You clicked!")
     }
     return (
-        <div className='flex justify-center items-center bg-cover bg-center bg-landing-page h-screen'>
+        <div className='flex justify-center items-center bg-cover bg-center bg-landing-page h-fit'>
             <div className="flex flex-col self-center w-[70%]">
                 <div className="flex justify-start my-14 h-fit w-fit">
                     <img src='./src/assets/d2dlogo.png' className='object-contain ml-6 w-[153px]'></img>
