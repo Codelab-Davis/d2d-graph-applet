@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import Graph from './Graph.tsx' 
 
 const substrateData = new Map<string, number[]>();
+
 function getData(data:[]){
     const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -33,7 +35,15 @@ function LandingPage() {
         getData(data.data);
       })
       .catch(error => console.error(error))
-  }
+
+      
+    };
+
+    substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
+    substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+    substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+
+
 
     const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
@@ -61,7 +71,10 @@ function LandingPage() {
                     </div>                   
                 </div>
             </div>
+            <Graph substrateData={substrateData} substrates={['A1', 'A2', 'A3']}  title = {"a1-a3"}  ></Graph>
+
         </div>
+        
         
     )
 }

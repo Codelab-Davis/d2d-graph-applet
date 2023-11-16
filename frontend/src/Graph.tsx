@@ -21,15 +21,14 @@ ChartJS.register(
     Legend
 );
 
+
 interface chartInterface {
     substrateData:Map<string, number[]>, 
-    xAxis:string[], 
     substrates:string[], 
-    borderColor:string, 
     title:string,
-    backgroundColor:string
 }
-function Charts(props:chartInterface) {
+function Graph(props:chartInterface) {
+    const labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
 
     const options = {
         responsive: true,
@@ -46,16 +45,15 @@ function Charts(props:chartInterface) {
 
     const dataSets = [];
 
-    for (let i = 0; i < props.xAxis.length; i++){
+    for (let i = 0; i < props.substrates.length; i++){
         dataSets.push({
-            label: props.xAxis[i],
+            label: `data set ${i}`,
             data: props.substrateData.get(props.substrates[i]),
-            borderColor:props.borderColor,
-            backgroundColor:props.backgroundColor
+            borderColor:'white',
+            backgroundColor:'black'
         })
     }
     
-    const labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']
 
     const data = {
         labels,
@@ -67,4 +65,4 @@ function Charts(props:chartInterface) {
         </div>
     );
 }
-export default Charts;
+export default Graph;
