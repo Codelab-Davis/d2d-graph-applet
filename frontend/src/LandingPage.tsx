@@ -52,17 +52,14 @@ function LandingPage() {
       }
 
     return (
-        <div className='flex justify-center items-center bg-cover bg-center bg-landing-page h-fit'>
-            <div className="flex flex-col self-center w-[70%]">
-                <div className="flex justify-start my-14 h-fit w-fit">
-                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-6 w-[10%]'></img>
-                </div>
-                <div className="flex flex-col justify-between items-center mb-44 py-[163px] bg-white rounded-3xl">
-                    <h1 className="mb-[54px] text-grays-700">ENZYME RATE CALCULATOR</h1>
+        <div className='flex flex-col justify-center items-center bg-cover bg-center bg-landing-page h-fill'>
+            <div className="flex flex-col self-center w-[95%]">
+                <div className="flex flex-col justify-between my-[42px] pb-[163px] bg-background-shape bg-cover h-[80%] rounded-3xl">
+                <img src='./src/assets/d2dlogo.png' className='object-contain ml-8 mt-2 w-[10%]'></img>
+                    <h1 className="my-[54px] text-grays-700">ENZYME RATE CALCULATOR</h1>
                     <h3 className="mb-[10px] text-grays-700">Please insert a valid spreadsheet URL</h3>
-                    <div className="flex justify-between items-center border-2  border-grays-400 mb-[36px] p-[4px] h-[67px] w-[516px] rounded-[40px]">
-                        <input className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL' onChange = {change}
-                value = {sheetURL}></input>
+                    <div className="flex justify-between items-center self-center border-2  border-grays-400 mb-[36px] p-[4px] h-[67px] w-[516px] rounded-[40px]">
+                        <input className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
                         <button onClick={click} className="mx-[6px] px-[20px] h-[47px] bg-secondary-500 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                     </div>
                     <div className="flex justify-center gap-2">
@@ -72,8 +69,8 @@ function LandingPage() {
                 </div>
             </div>
             <Graph substrateData={substrateData} substrates={['A1', 'A2', 'A3']}  title = {"a1-a3"}  ></Graph>
-
         </div>
+        
         
         
     )
