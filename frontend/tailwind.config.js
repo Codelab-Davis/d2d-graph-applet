@@ -53,7 +53,7 @@ export default {
     extend: {
       backgroundImage: {
         'landing-page': "linear-gradient(to top, rgba(148, 209, 215, 0.82), rgba(255, 255, 255, 0.82)), url('./src/assets/backgroundLandingPage.svg')",
-        'background-shape': "url('./src/assets/whiteBackground.svg')"
+        'background-shape': "url('./src/assets/darkGradientBackground.svg')"
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],

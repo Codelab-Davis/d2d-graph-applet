@@ -49,27 +49,36 @@ function LandingPage() {
         // parse url for sheetId
         setSheetURL(event.target.value);
         setSheetId(event.target.value.split('/')[5]);
-      }
+    }
+
+    const helpButtonClicked = () => {
+      console.log("You asked for help!");
+      window.location.href = "https://www.youtube.com";
+    }
 
     return (
-        <div className='flex flex-col justify-center items-center bg-cover bg-center bg-landing-page h-fill'>
-            <div className="flex flex-col self-center w-[95%]">
-                <div className="flex flex-col justify-between my-[42px] pb-[163px] bg-background-shape bg-cover h-[80%] rounded-3xl">
-                <img src='./src/assets/d2dlogo.png' className='object-contain ml-8 mt-2 w-[10%]'></img>
-                    <h1 className="my-[54px] text-grays-700">ENZYME RATE CALCULATOR</h1>
-                    <h3 className="mb-[10px] text-grays-700">Please insert a valid spreadsheet URL</h3>
-                    <div className="flex justify-between items-center self-center border-2  border-grays-400 mb-[36px] p-[4px] h-[67px] w-[516px] rounded-[40px]">
-                        <input className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
-                        <button onClick={click} className="mx-[6px] px-[20px] h-[47px] bg-secondary-500 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
+      <div>
+        <div className='flex flex-col justify-center items-center bg-gradient-to-t from-[#94d1d7d1] to-[#ffffffd1] h-screen'>
+            <div className="flex flex-col w-[95%]">
+                <div className="flex flex-col justify-start bg-background-shape bg-cover h-[90vh] rounded-3xl">
+                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[200px] min-[1800px]:w-[225px]'></img>
+                    <div className="flex flex-col flex-grow justify-center">
+                      <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
+                      <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
+                      <div className="flex justify-between items-center self-center bg-white p-[4px] h-[67px] w-[608px] rounded-[40px]">
+                          <input onChange = {change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
+                          <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
+                      </div>  
                     </div>
-                    <div className="flex justify-center gap-2">
-                        <a className="text-base font-manrope font-medium underline text-grays-700" href="https://www.youtube.com/">How it works</a>
-                        <img src="./src/assets/orangeButton.svg"></img>
-                    </div>                   
+                    <div className='flex justify-end'>
+                    <button><img src="./src/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]"/></button>
+                    </div>                                     
                 </div>
             </div>
-            <Graph substrateData={substrateData} substrates={['A1', 'A2', 'A3']}  title = {"a1-a3"}  ></Graph>
         </div>
+        <Graph substrateData={substrateData} substrates={['A1', 'A2', 'A3']}  title = {"a1-a3"}  ></Graph>
+      </div>
+        
         
         
         
