@@ -76,7 +76,6 @@ function LandingPage() {
                 </div>
             </div>
         </div>
-        <Graph substrateData={substrateData} substrates={['A1', 'A2', 'A3']}  title = {"a1-a3"}  ></Graph>
       </div>
         
         
