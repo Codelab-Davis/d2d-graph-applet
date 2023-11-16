@@ -6,7 +6,7 @@ function LandingPage() {
         <div className='flex justify-center items-center bg-cover bg-center bg-landing-page h-fit'>
             <div className="flex flex-col self-center w-[70%]">
                 <div className="flex justify-start my-14 h-fit w-fit">
-                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-6 w-[153px]'></img>
+                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-6 w-[10%]'></img>
                 </div>
                 <div className="flex flex-col justify-between items-center mb-44 py-[163px] bg-white rounded-3xl">
                     <h1 className="mb-[54px] text-grays-700">ENZYME RATE CALCULATOR</h1>
