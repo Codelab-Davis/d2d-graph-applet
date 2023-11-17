@@ -49,12 +49,11 @@ function Graph(props:chartInterface) {
         dataSets.push({
             label: `data set ${i}`,
             data: props.substrateData.get(props.substrates[i]),
-            borderColor:'white',
+            borderColor:'black',
             backgroundColor:'black'
         })
     }
     
-
     const data = {
         labels,
         datasets: dataSets
