@@ -61,7 +61,7 @@ function LandingPage() {
         <div className='flex flex-col justify-center items-center bg-gradient-to-t from-[#94d1d7d1] to-[#ffffffd1] h-screen'>
             <div className="flex flex-col w-[95%]">
                 <div className="flex flex-col justify-start bg-background-shape bg-cover h-[90vh] rounded-3xl">
-                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[200px] min-[1800px]:w-[225px]'></img>
+                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[153px] min-[1450px]:w-[180px] min-[1650px]:w-[200px]'></img>
                     <div className="flex flex-col flex-grow justify-center">
                       <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
                       <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
