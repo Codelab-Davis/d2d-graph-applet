@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Graph from './Graph.tsx' 
 
 const substrateData = new Map<string, number[]>();
 
@@ -20,12 +19,15 @@ function getData(data:[]){
         }
       }
     }
+    console.log("finished parsing");
+    console.log(substrateData);
     console.log(substrateData.get('A1'));
   }
 
-function LandingPage() {
+function LandingPage(props: { substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [sheetId, setSheetId] = useState("");
     const [sheetURL, setSheetURL] = useState("");
+
     const click = ()=>{
     fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
       method: "GET"
@@ -33,17 +35,16 @@ function LandingPage() {
       .then(response => response.json())
       .then(data => {
         getData(data.data);
+        console.log(substrateData);
+        props.setSubstrateData(substrateData);
+        props.setVisibility(true);
       })
-      .catch(error => console.error(error))
-
-      
+      .catch(error => console.error(error))      
     };
 
-    substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
-    substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
-    substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-
-
+    // substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
+    // substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+    // substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
     const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
