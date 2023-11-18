@@ -9,23 +9,51 @@ function RateTable(props: { substrateData: Map<string, number[]>, visible: Boole
         ['G', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
         ['H', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
     ];
-    
+
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+    let objUrl;
+
+    // https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
+    function makeCSVData() {
+        const csvData = [];
+        csvData.push(headers);
+        for (let i = 0; i < data.length; i++) {
+            csvData.push(data[i])
+        }
+        console.log(csvData)
+
+        let csvContent = ''
+
+        csvData.forEach(row => {
+            csvContent += row.join(',') + '\n'
+        })
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8,' })
+        console.log(blob)
+        objUrl = URL.createObjectURL(blob)
+    }
+
+    makeCSVData()
+
+
     if (props.visible) {
         return (
             <div className="flex flex-col mt-[150px] mx-[10%] w-[80%]">
                 <div className="flex justify-between mb-6">
-                    <div className="flex gap-6">                    
+                    <div className="flex gap-6">
                         <h3>ENZYME REACTION RATES</h3>
                         <button><img src="./src/assets/grayInfoIcon.svg"/></button>
                     </div>
                     <button>
-                        <div className="flex">
-                            <p className="text-secondary-600">Export</p>
-                            <img src="./src/assets/exportDropDown.svg"/>
-                        </div>
+                        <a href={objUrl} download={"Output.csv"}>
+                            <div className="flex">
+                                <p className="text-secondary-600">Export</p>
+                                <img src="./src/assets/exportDropDown.svg"/>
+                            </div>
+                        </a>
                     </button>
-                </div>            
+                </div>
                 <table className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl bg-white border-none">
                     <thead>
                         <tr>
@@ -48,11 +76,11 @@ function RateTable(props: { substrateData: Map<string, number[]>, visible: Boole
                 <p>{props.substrateData.get('A1')}</p>
                 <p>{props.substrateData.get('A2')}</p>
             </div>
-            
+
         )
     }
     return (
         <div></div>
-    ) 
+    )
 }
 export default RateTable;
