@@ -1,17 +1,11 @@
-function RateTable(props: { substrateData: Map<string, number[]>, visible: Boolean }) {
-    const data = [
-        ['A', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['B', 0.5, 0.5, 0.5, 0.5, 0.5, 0.9, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['C', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['D', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['E', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['F', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['G', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-        ['H', 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
-    ];
-    
+import { useState, memo } from "react";
+
+
+function RateTable(props: { rateData: (string | number)[][], visible: Boolean }) {
+
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    if (props.visible) {
+    
+    if(props.visible) {
         return (
             <div className="flex flex-col mt-[150px] mx-[10%] w-[80%]">
                 <div className="flex justify-between mb-6">
@@ -35,22 +29,24 @@ function RateTable(props: { substrateData: Map<string, number[]>, visible: Boole
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((rowContent, rowID) => (
+                        {props.rateData.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border border-grays-300 h-12 pl-[10px] border-t-0" key={rowDataID}>{val}</td>
+                                    <td className="border border-grays-300 h-12 pl-[10px] border-t-0" key={rowDataID}>
+                                        <div>                                            
+                                            {val}
+                                        </div>
+                                    </td>
                                 ))}
                             </tr>
                         ))}
                     </tbody>
                 </table>
                 <div className="w-fill h-[2px] rounded-[2px] bg-grays-400"/>
-                <p>{props.substrateData.get('A1')}</p>
-                <p>{props.substrateData.get('A2')}</p>
             </div>
             
         )
-    }
+    }    
     return (
         <div></div>
     ) 
