@@ -57,7 +57,8 @@ export default {
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
-        'manrope': ['Manrope', 'sans-serif']
+        'manrope': ['Manrope', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif']
       }
     },
   },
