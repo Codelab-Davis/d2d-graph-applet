@@ -8,8 +8,8 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
     function makeCSVData() {
         const csvData = [];
         csvData.push(headers);
-        for (let i = 0; i < data.length; i++) {
-            csvData.push(data[i])
+        for (let i = 0; i < props.rateData.length; i++) {
+            csvData.push(props.rateData[i])
         }
         console.log(csvData)
 
