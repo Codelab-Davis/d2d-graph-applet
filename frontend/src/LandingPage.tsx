@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Graph from './Graph.tsx' 
 
 const substrateData = new Map<string, number[]>();
 
@@ -20,12 +19,79 @@ function getData(data:[]){
         }
       }
     }
-    console.log(substrateData.get('A1'));
   }
 
-function LandingPage() {
+  function maxSlope(substrateData:Map<string, number[]>, substrate:string){
+    const window:number[][] = [];
+    let data:number[] = substrateData.get(substrate)!;
+    let maxSlope = -Infinity
+    let tempSlope = -Infinity
+    for (let i = 0; i < data.length; i ++){
+      if (window.length < 3) {
+        window.push([i, data[i]]);
+      }
+      else{
+        tempSlope = findSlope(window);
+        maxSlope = Math.max(maxSlope, tempSlope);
+        window.shift();
+        window.push([i, data[i]]);
+      }
+    }
+    
+    tempSlope = findSlope(window);
+    maxSlope = Math.max(maxSlope, tempSlope);
+    return maxSlope.toExponential(4);
+  }
+  
+function findSlope(points:number[][]) {
+    let size = points.length;
+    let sumx = 0;
+    let sumxsquard = 0;
+    let sumy = 0;
+    let sumxy = 0;
+
+    for (let i = 0; i < points.length; i++){
+    let x = points[i][0];
+    let y = points[i][1];
+
+    sumx += x;
+    sumxsquard += x * x;
+    sumy += y;
+    sumxy += x * y;
+    }
+    let slope = (size * sumxy - sumx * sumy) / (size * sumxsquard - sumx * sumx);
+    return slope;
+}
+
+function getRates() {
+  const substrateTypes = Array.from(substrateData.keys());
+    let currSubstrate:string = "";
+    let allRateData:(string | number)[][] = [];
+    let currRateData:(string | number)[] = [];
+    for (let i = 0; i < substrateTypes.length; i++){
+        console.log(substrateTypes[i]);
+        if(i == 0) {
+            currSubstrate = substrateTypes[i][0];
+            currRateData.push(currSubstrate);
+        }           
+        if(substrateTypes[i][0] != currSubstrate) {
+            console.log(currRateData);
+            currSubstrate = substrateTypes[i][0];
+            allRateData.push(currRateData);
+            currRateData = []
+            currRateData.push(currSubstrate);
+        }
+        currRateData.push(maxSlope(substrateData, substrateTypes[i]));
+    }
+    allRateData.push(currRateData); 
+    console.log(allRateData);
+    return allRateData;
+}   
+
+function LandingPage(props: { rateData: (string | number)[][], setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>, substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [sheetId, setSheetId] = useState("");
     const [sheetURL, setSheetURL] = useState("");
+
     const click = ()=>{
     fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
       method: "GET"
@@ -33,17 +99,17 @@ function LandingPage() {
       .then(response => response.json())
       .then(data => {
         getData(data.data);
+        console.log(substrateData);
+        props.setSubstrateData(substrateData);
+        props.setRateData(getRates());
+        props.setVisibility(true);
       })
-      .catch(error => console.error(error))
-
-      
+      .catch(error => console.error(error))      
     };
 
-    substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
-    substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
-    substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-
-
+    // substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
+    // substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
+    // substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
     const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId

@@ -25,6 +25,7 @@
   }
   body {
     @apply font-manrope;
+    @apply text-base;
   } 
   th {
     @apply text-base;    
