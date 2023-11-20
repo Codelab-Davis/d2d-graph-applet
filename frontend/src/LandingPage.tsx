@@ -125,28 +125,25 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
     return (
       <div>
         <div className='flex flex-col justify-center items-center bg-gradient-to-t from-[#94d1d7d1] to-[#ffffffd1] h-screen'>
-            <div className="flex flex-col w-[95%]">
-                <div className="flex flex-col justify-start bg-background-shape bg-cover h-[90vh] rounded-3xl">
-                    <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[153px] min-[1450px]:w-[180px] min-[1650px]:w-[200px]'></img>
-                    <div className="flex flex-col flex-grow justify-center">
-                      <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
-                      <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
-                      <div className="flex justify-between items-center self-center bg-white p-[4px] h-[67px] w-[608px] rounded-[40px]">
-                          <input onChange = {change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
-                          <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
-                      </div>  
-                    </div>
-                    <div className='flex justify-end'>
-                    <button><img src="./src/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]"/></button>
-                    </div>                                     
+          <div className="flex flex-col w-[95%]">
+            <div className="flex flex-col justify-start bg-background-shape bg-cover h-[90vh] rounded-3xl">
+              <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[153px] min-[1450px]:w-[180px] min-[1650px]:w-[200px]'></img>
+              <div className="flex flex-col flex-grow justify-center">
+                <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
+                <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
+                <div className="flex justify-between items-center self-center bg-white p-[4px] h-[67px] w-[608px] rounded-[40px]">
+                  <input onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
+                  <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
+              </div>
+              <div className='flex justify-end'>
+                <button><img src="./src/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]" /></button>
+              </div>
             </div>
+          </div>
         </div>
       </div>
-        
-        
-        
-        
+  
     )
 }
 
