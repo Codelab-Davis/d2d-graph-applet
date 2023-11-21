@@ -40,7 +40,7 @@ function getData(data:[]){
     
     tempSlope = findSlope(window);
     maxSlope = Math.max(maxSlope, tempSlope);
-    return maxSlope.toPrecision(4);
+    return parseFloat(maxSlope.toPrecision(4));
   }
   
 function findSlope(points:number[][]) {

@@ -57,7 +57,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                                 {rowContent.map((val, rowDataID) => (
                                     <td className="border border-grays-300 h-12 pl-[10px] border-t-0" key={rowDataID}>
                                         <div>                                            
-                                            {val}
+                                            {(typeof val !== 'string' && val < 0.001) ? val.toExponential(4) : val}
                                         </div>
                                     </td>
                                 ))}
