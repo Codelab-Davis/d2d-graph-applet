@@ -34,25 +34,40 @@ function Graph(props:chartInterface) {
         responsive: true,
         plugins: {
             legend: {
-                position: 'top' as const,
+                display: false,
             },
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
             },
         },
+        scales: {
+            x: {
+                grid: {
+                  display: false
+                }
+              },
+              y: {
+                grid: {
+                  display: false
+                }
+              }
+        }
     };
 
     const dataSets = [];
+    const colors = ["red", "green", "blue"]
 
     for (let i = 0; i < props.substrates.length; i++){
         dataSets.push({
             label: `data set ${i}`,
             data: props.substrateData.get(props.substrates[i]),
-            borderColor:'black',
-            backgroundColor:'black'
+            borderColor: colors[i],
+            pointBorderColor: 'rgba(0,0,0,0)',
+            pointBackgroundColor: 'rgba(0,0,0,0)',
         })
     }
+
+    console.log(dataSets);
     
     const data = {
         labels,
@@ -60,7 +75,7 @@ function Graph(props:chartInterface) {
     };
     return (
         <div className='my-first-chart flex self-stretch items-center'>
-            <Line options={options} data={data}/>
+            <Line options={options} data={data} />
         </div>
     );
 }
