@@ -28,7 +28,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
     
     if(props.visible) {
         return (
-            <div className="flex flex-col mt-[150px] mx-[10%] w-[80%]">
+            <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
                         <h3>ENZYME REACTION RATES</h3>
@@ -55,9 +55,9 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                         {props.rateData.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border border-grays-300 h-12 pl-[10px] border-t-0" key={rowDataID}>
+                                    <td className="border border-grays-300 h-12 pl-[10px] border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
                                         <div>                                            
-                                            {(typeof val !== 'string' && val < 0.001) ? val.toExponential(4) : val}
+                                            {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
                                         </div>
                                     </td>
                                 ))}
