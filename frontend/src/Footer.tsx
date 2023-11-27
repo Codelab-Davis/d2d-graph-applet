@@ -1,12 +1,12 @@
 const Footer = () => {
     return (
       <>
-        <footer className="bg-white dark:bg-gray-900">
+        <footer className="dark:bg-gray-900">
           <div className="mx-auto w-[95%] p-4 py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                 <a href="https://d2d.ucdavis.edu/" className="flex sm:mx-auto items-center">
-                  <img src='./src/assets/d2dlogo.png' className='object-contain ml-1 mt-1 w-[153px] min-[1450px]:w-[180px] min-[1650px]:w-[200px]'></img>
+                  <img src='./src/assets/d2dlogo.png' className='object-contain ml-1 mt-1 w-[140px] min-[1450px]:w-[160px] min-[1650px]:w-[180px]'></img>
                 </a>
                 <span className="self-center ml-1 text-2xl whitespace-nowrap dark:black">Enzyme Rate Calculator</span>
               </div>

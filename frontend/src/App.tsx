@@ -13,7 +13,7 @@ function App() {
 
 
   return (
-    <div className="bg-[#f7fcff]">
+    <div className="bg-[#fdfdfd]">
       <LandingPage rateData={rateData} setRateData={setRateData} substrateData={substrateData} setSubstrateData={setSubstrateData} visible={visibility} setVisibility={setVisibility}></LandingPage>
       <RateTable rateData={rateData} visible={visibility}></RateTable> 
       <GraphPage  substrateData={substrateData} visible={visibility}></GraphPage>
