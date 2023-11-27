@@ -69,13 +69,11 @@ function getRates() {
     let allRateData:(string | number)[][] = [];
     let currRateData:(string | number)[] = [];
     for (let i = 0; i < substrateTypes.length; i++){
-        console.log(substrateTypes[i]);
         if(i == 0) {
             currSubstrate = substrateTypes[i][0];
             currRateData.push(currSubstrate);
         }           
         if(substrateTypes[i][0] != currSubstrate) {
-            console.log(currRateData);
             currSubstrate = substrateTypes[i][0];
             allRateData.push(currRateData);
             currRateData = []
@@ -83,8 +81,7 @@ function getRates() {
         }
         currRateData.push(maxSlope(substrateData, substrateTypes[i]));
     }
-    allRateData.push(currRateData); 
-    console.log(allRateData);
+    allRateData.push(currRateData);
     return allRateData;
 }   
 
@@ -118,7 +115,6 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
     }
 
     const helpButtonClicked = () => {
-      console.log("You asked for help!");
       window.location.href = "https://www.youtube.com";
     }
 

@@ -27,6 +27,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
     makeCSVData()
     
     if(props.visible) {
+        console.log(props.rateData);
         return (
             <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
