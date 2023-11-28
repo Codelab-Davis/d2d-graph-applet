@@ -47,12 +47,20 @@ function Graph(props:chartInterface) {
 
     const options = {
         responsive: true,
+        layout: {
+            padding: {
+                top: 10,
+                left: 3,
+                bottom: 3,
+                right: 10
+            }
+        },
         plugins: {
             legend: {
                 display: false,
             },
             title: {
-                display: true,
+                display: false,
             },
             chartAreaBackground: {
                 color: 'rgba(250, 250, 250, 1)'
@@ -62,19 +70,17 @@ function Graph(props:chartInterface) {
             x: {
                 ticks: {
                     display: false,
-                    beginAtZero: true,
                 },
                 grid: {
-                  display: false
+                  display: false,
                 }
               },
               y: {
                 ticks: {
                     display: false,
-                    beginAtZero: true,
                 },
                 grid: {
-                  display: false
+                  display: false,
                 }
               }
         }
@@ -82,11 +88,11 @@ function Graph(props:chartInterface) {
 
     const dataSets = [];
     const labels = [];
-    const colors = ["red", "green", "blue"];
+    const colors = ['rgba(247, 159, 96, 1)', 'rgba(106, 192, 192, 1)', 'rgba(66, 106, 207, 1)'];
 
     for (let i = 0; i < props.substrates.length; i++){
         dataSets.push({
-            label: `data set ${i}`,
+            label: `data set ${props.substrates[i]}`,
             data: props.substrateData.get(props.substrates[i]),
             borderColor: colors[i],
             pointBorderColor: 'rgba(0,0,0,0)',
@@ -104,9 +110,7 @@ function Graph(props:chartInterface) {
         datasets: dataSets,
     };
     return (
-        <div className='relative h-[100%] w-[100%]'>
-            <Line options={options} data={data} plugins={[chartAreaBackground]}/>
-        </div>
+        <Line options={options} data={data} plugins={[chartAreaBackground]}/>
     );
 }
 export default Graph;

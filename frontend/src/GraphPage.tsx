@@ -26,18 +26,22 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
 
     if (props.visible){
         return (
-            <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
+            <div className="flex flex-col mt-[136px] mb-[230px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
                         <h3>RATE VISUALIZATIONS</h3>
                         <button><img src="./src/assets/grayInfoIcon.svg"/></button>
                     </div>
                 </div>
-                <table className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl bg-white border-none">
+                <table className="border-separate border-spacing-0 w-full table-auto text-left rounded-3xl bg-white border-none">
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
-                                <th className="border border-primary-700 bg-primary-500 text-white h-12 pl-[10px] border-b-0" key={headID}>{head}</th>
+                                <th className="border border-primary-700 bg-primary-500 text-white h-12 pl-[10px] border-b-0" key={headID}>
+                                    {
+                                        head == " "? <div className="w-[10vh]">{head}</div> : <div>{head}</div>
+                                    }
+                                </th>
                             ))}
                         </tr>
                     </thead>
@@ -45,20 +49,17 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                         {substrateDataGroups.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border border-grays-300 h-12 pl-[10px] border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
-                                        <div>                                            
-                                            {typeof val == 'string'? val : <Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph>}
-                                        </div>
+                                    <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
+                                        {
+                                            typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div> 
+                                            : <div className="relative h-full w-full"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
+                                        }
                                     </td>
                                 ))}
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                <div className="h-100vh w-100vw">
-                    <Graph substrateData={props.substrateData} substrates={['A1', 'A2', 'A3']} title = {'TEST'}></Graph>
-                </div>  
-
             </div>
         ) 
     }

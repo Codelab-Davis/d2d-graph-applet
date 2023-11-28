@@ -49,4 +49,20 @@
   tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
   }
+
+  td:first-child {
+    border-color:#b8d5d8;
+    background: #cfe7e9;
+    text-align: center;
+    padding-left: 0px;
+  }
+
+  td:last-child {
+    border-color: #e4e4e4;
+    border-width: 1px;
+  }
+
+  table, tr, td, th { 
+    box-sizing: border-box; 
+  }
 }
