@@ -47,14 +47,7 @@ function Graph(props:chartInterface) {
 
     const options = {
         responsive: true,
-        layout: {
-            padding: {
-                top: 10,
-                left: 3,
-                bottom: 3,
-                right: 10
-            }
-        },
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false,

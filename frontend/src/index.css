@@ -61,8 +61,4 @@
     border-color: #e4e4e4;
     border-width: 1px;
   }
-
-  table, tr, td, th { 
-    box-sizing: border-box; 
-  }
 }

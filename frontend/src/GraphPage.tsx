@@ -52,7 +52,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                                     <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
                                         {
                                             typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div> 
-                                            : <div className="relative h-full w-full"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
+                                            : <div className="relative m-auto w-[90%]"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
                                         }
                                     </td>
                                 ))}
