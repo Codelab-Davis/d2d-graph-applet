@@ -26,7 +26,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
 
     if (props.visible){
         return (
-            <div className="flex flex-col mt-[136px] mb-[230px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
+            <div className="flex flex-col mt-[136px] mb-[200px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
                         <h3>RATE VISUALIZATIONS</h3>

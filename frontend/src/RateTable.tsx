@@ -37,8 +37,8 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                     </div>
                     <button>
                         <a href={objUrl} download={"Output.csv"}>
-                            <div className="flex">
-                                <p className="text-secondary-600">Export</p>
+                            <div className="flex gap-[4px] py-[6px] pl-[15px] pr-[8px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
+                                <p className="text-white font-semibold">Export</p>
                                 <img src="./src/assets/exportDropDown.svg"/>
                             </div>
                         </a>

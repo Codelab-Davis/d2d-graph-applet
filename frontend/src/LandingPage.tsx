@@ -129,7 +129,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
                 <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
                 <div className="flex justify-between items-center self-center bg-white p-[4px] h-[67px] md:w-[608px] sm:w-[80%] rounded-[40px]">
                   <input onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
-                  <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
+                  <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
               </div>
               <div className='flex justify-end'>
