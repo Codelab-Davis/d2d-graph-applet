@@ -33,7 +33,16 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
                         <h3>ENZYME REACTION RATES</h3>
-                        <button><img src="./src/assets/grayInfoIcon.svg"/></button>
+                        <div className="group relative w-max">
+                            <button><img src="./src/assets/grayInfoIcon.svg"/></button>
+                            <span className="pointer-events-none absolute w-max -top-[80px] left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
+                            text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] transition-opacity group-hover:opacity-100">
+                                <div className="flex flex-col items-start">
+                                    <p><b>Right-click </b>to flag data</p>
+                                    <p><b>Click and drag </b>to select data</p>
+                                </div>
+                            </span>
+                        </div>                        
                     </div>
                     <button>
                         <a href={objUrl} download={"Output.csv"}>
