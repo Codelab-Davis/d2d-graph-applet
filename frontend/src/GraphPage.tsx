@@ -24,7 +24,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
         currGroup.push(group);
     }
 
-    if (true){
+    if (props.visible){
         return (
             <div className="flex flex-col mt-[136px] mb-[200px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
@@ -49,7 +49,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                         {substrateDataGroups.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
+                                    <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 text-sm" key={rowDataID}>
                                         {
                                             typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div> 
                                             : <div className="relative w-[98%]"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
