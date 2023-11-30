@@ -31,11 +31,11 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
         return (
             <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 items-center">
                         <h3>ENZYME REACTION RATES</h3>
                         <div className="group relative w-max">
-                            <button><img src="./src/assets/grayInfoIcon.svg"/></button>
-                            <span className="pointer-events-none absolute w-max -top-[80px] left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
+                            <button className="mt-[6px]"><img src="./src/assets/grayInfoIcon.svg"/></button>
+                            <span className="pointer-events-none absolute w-max -top-[100px] lg:-top-[80px] -left-[500%] lg:left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
                                     <p><b>Right-click </b>to flag data</p>
