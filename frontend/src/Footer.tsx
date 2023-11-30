@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
             <div className="mt-[58px] mb-[16px] w-fill h-[1px] rounded-[2px] bg-grays-400"/>
             <div className="sm:flex sm:items-center sm:justify-between">
-              <div className="flex gap-1 justify-center justify-items-center items-center">
+              <div className="flex gap-2 justify-center justify-items-center items-center">
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                   Made with
                 </span>
@@ -29,7 +29,7 @@ const Footer = () => {
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                   by
                 </span>
-              <img className='mt-[10px]' src='./src/assets/codelabLogo.svg'/>
+              <img className='w-[92px]' src='./src/assets/codelabLogo.svg'/>
               </div>
               <div className="flex gap-3 lg:gap-[40px] mt-4 sm:justify-center sm:mt-0">
                 <a href="https://d2d.ucdavis.edu/" className="hover:underline text-grays-700" >Contact Us</a>
