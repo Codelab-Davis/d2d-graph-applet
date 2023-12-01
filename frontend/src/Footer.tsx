@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
               <div className="flex gap-3 lg:gap-[40px] mt-4 sm:justify-center sm:mt-0">
                 <a href="https://d2d.ucdavis.edu/" className="hover:underline text-grays-700" >Contact Us</a>
-                <a href="#" className="hover:underline text-grays-700">About D2Dt</a>
+                <a href="#" className="hover:underline text-grays-700">About D2D</a>
                 <a href="#" className="hover:underline text-grays-700">Privacy Policy</a>
                 <a href="#" className="hover:underline text-grays-700">Terms of Service</a>
                 <a href="#" className="hover:underline text-grays-700">Cookies</a>
