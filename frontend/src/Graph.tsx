@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import {
     Chart as ChartJS,
@@ -11,21 +10,6 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-
-// custom plugin to set background color
-const chartAreaBackground = {
-    id:'chartAreaBackground',
-    beforeDatasetsDraw(chart: { ctx: any; chartArea: any}, args: any, opts: any) {
-        if(!opts.color) {
-            return;
-        }
-        const { ctx, chartArea } = chart;
-        ctx.save();
-        ctx.fillStyle = opts.color;
-        ctx.fillRect(chartArea.left, chartArea.top, chartArea.width, chartArea.height);
-    }
-}
-
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -33,8 +17,7 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend, 
-    chartAreaBackground,
+    Legend
 );
 
 
@@ -44,66 +27,42 @@ interface chartInterface {
     title:string,
 }
 function Graph(props:chartInterface) {
+    const labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'];
 
     const options = {
         responsive: true,
-        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false,
             },
             title: {
-                display: false,
+                display: true,
             },
-            chartAreaBackground: {
-                color: 'rgba(250, 250, 250, 1)'
-            }
         },
         scales: {
             x: {
-                ticks: {
-                    display: false,
-                },
                 grid: {
-                  display: false,
+                  display: false
                 }
               },
               y: {
-                ticks: {
-                    display: false,
-                },
                 grid: {
-                  display: false,
+                  display: false
                 }
               }
         }
     };
-
-    const dataSets = [];
-    const labels = [];
-    const colors = ['rgba(247, 159, 96, 1)', 'rgba(106, 192, 192, 1)', 'rgba(66, 106, 207, 1)'];
-
-    for (let i = 0; i < props.substrates.length; i++){
-        dataSets.push({
-            label: `data set ${props.substrates[i]}`,
-            data: props.substrateData.get(props.substrates[i]),
-            borderColor: colors[i],
-            pointBorderColor: 'rgba(0,0,0,0)',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-        })
-        if(dataSets!= null && dataSets[0].data != null && i == 0) {
-            for(let j = 0; j < dataSets[0].data.length; j++) {
-                labels.push(`${j}`);
-            }
-        } 
-    }
+  
+    //console.log(dataSets);
     
     const data = {
         labels,
-        datasets: dataSets,
+        datasets: dataSets
     };
     return (
-        <Line options={options} data={data} plugins={[chartAreaBackground]}/>
+        <div className='my-first-chart flex self-stretch items-center'>
+            <Line options={options} data={data} />
+        </div>
     );
 }
 export default Graph;
