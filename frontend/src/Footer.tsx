@@ -19,7 +19,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-[58px] mb-[16px] w-fill h-[1px] rounded-[2px] bg-grays-400"/>
+            <div className="mt-[56px] mb-[16px] w-fill h-[1px] rounded-[2px] bg-grays-400"/>
             <div className="sm:flex sm:items-center sm:justify-between">
               <div className="flex gap-2 justify-center justify-items-center items-center">
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
