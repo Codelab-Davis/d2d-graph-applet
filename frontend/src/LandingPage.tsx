@@ -123,7 +123,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
         <div className='flex flex-col justify-center items-center h-screen'>
           <div className="flex flex-col w-[95%]">
             <div className="flex flex-col justify-start bg-background-shape bg-cover h-[90vh] rounded-3xl">
-              <img src='./public/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[140px] min-[1450px]:w-[160px] min-[1650px]:w-[180px]'></img>
+              <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[140px] min-[1450px]:w-[160px] min-[1650px]:w-[180px]'></img>
               <div className="flex flex-col flex-grow justify-center">
                 <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
                 <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
@@ -133,7 +133,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
                 </div>
               </div>
               <div className='flex justify-end'>
-                <button><img src="./public/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]" /></button>
+                <button><img src="./src/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]" /></button>
               </div>
             </div>
           </div>
