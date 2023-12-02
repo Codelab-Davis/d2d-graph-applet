@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import {
     Chart as ChartJS,
@@ -15,7 +14,7 @@ import { Line } from 'react-chartjs-2';
 // custom plugin to set background color
 const chartAreaBackground = {
     id:'chartAreaBackground',
-    beforeDatasetsDraw(chart: { ctx: any; chartArea: any}, args: any, opts: any) {
+    beforeDatasetsDraw(chart: { ctx: any; chartArea: any}, opts: any) {
         if(!opts.color) {
             return;
         }
@@ -33,14 +32,14 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend, 
+    Legend,
     chartAreaBackground,
 );
 
 
 interface chartInterface {
-    substrateData:Map<string, number[]>, 
-    substrates:string[], 
+    substrateData:Map<string, number[]>,
+    substrates:string[],
     title:string,
 }
 function Graph(props:chartInterface) {
@@ -95,9 +94,9 @@ function Graph(props:chartInterface) {
             for(let j = 0; j < dataSets[0].data.length; j++) {
                 labels.push(`${j}`);
             }
-        } 
+        }
     }
-    
+
     const data = {
         labels,
         datasets: dataSets,
