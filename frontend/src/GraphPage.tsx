@@ -33,7 +33,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                         <button><img src="./src/assets/grayInfoIcon.svg"/></button>
                     </div>
                 </div>
-                <table className="border-separate border-spacing-0 w-full table-auto text-left rounded-3xl bg-white border-none">
+                <table id="graphs" className="border-separate border-spacing-0 w-full table-auto text-left rounded-3xl bg-white border-none">
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
@@ -51,7 +51,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                                 {rowContent.map((val, rowDataID) => (
                                     <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 text-sm" key={rowDataID}>
                                         {
-                                            typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div> 
+                                            typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div>
                                             : <div className="relative w-[98%]"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
                                         }
                                     </td>
@@ -61,7 +61,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                     </tbody>
                 </table>
             </div>
-        ) 
+        )
     }
     return <div></div>
 }

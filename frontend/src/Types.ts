@@ -4,5 +4,4 @@ export interface JoyrideState {
     run: boolean;
     stepIndex: number;
     steps: Step[];
-    tourActive: boolean;
 }

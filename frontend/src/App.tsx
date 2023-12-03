@@ -13,24 +13,24 @@ function App() {
     {
       target: "#url-input",
       content: "Paste in your spreadsheet URL here!",
-      disableBeacon: true,
+      disableBeacon: true
     },
     {
       target: "#calculate-button",
-      content: "After pasting the link, click here!"
+      content: "After pasting the link, click here!",
+    },
+    {
+      target: "#rate-table",
+      content: "Here is the enzyme reaction rate data."
+    },
+    {
+      target: "#export-button",
+      content: "Use this button to download a csv file of the table data"
+    },
+    {
+      target: "#graphs",
+      content: "These are the graphs corresponding to the rate table"
     }
-    // {
-    //   target: "#rate-table",
-    //   content: "Here is the enzyme reaction rate data."
-    // },
-    // {
-    //   target: "#export-button",
-    //   content: "Use this button to download a csv file of the table data"
-    // },
-    // {
-    //   target: "#graphs",
-    //   content: "These are the graphs corresponding to the rate table"
-    // }
   ];
 
   const [substrateData, setSubstrateData] = useState(new Map<string, number[]>());
@@ -41,7 +41,6 @@ function App() {
       run: false,
       stepIndex: 0,
       steps: steps,
-      tourActive: false
     }
   )
 
@@ -72,6 +71,9 @@ function App() {
     <div className="bg-[#fdfdfd]">
       <Joyride
         continuous
+        disableOverlayClose
+        spotlightClicks
+        hideBackButton
         steps={steps}
         run={joyrideState.run}
         stepIndex={joyrideState.stepIndex}

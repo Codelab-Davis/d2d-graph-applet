@@ -111,6 +111,11 @@ function LandingPage(
         props.setSubstrateData(substrateData);
         props.setRateData(getRates());
         props.setVisibility(true);
+        props.setJoyrideState(prevState => ({
+          ...prevState,
+          run: true,
+          stepIndex: prevState.stepIndex + 1
+        }))
       })
       .catch(error => console.error(error))
     };
@@ -128,8 +133,8 @@ function LandingPage(
     const helpButtonClicked = () => {
       props.setJoyrideState(prevState => ({
         ...prevState,
+        stepIndex: 0,
         run: true,
-        tourActive: true
       }));
 
       // Object.assign({run: true, tourActive: true}))

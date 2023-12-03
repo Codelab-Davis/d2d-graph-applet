@@ -43,7 +43,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                             </span>
                         </div>
                     </div>
-                    <button>
+                    <button id="export-button">
                         <a href={objUrl} download={"Output.csv"}>
                             <div className="flex gap-[4px] py-[6px] pl-[15px] pr-[8px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
                                 <p className="text-white font-semibold">Export</p>
@@ -52,7 +52,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                         </a>
                     </button>
                 </div>
-                <table className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl bg-white border-none">
+                <table id="rate-table" className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl bg-white border-none">
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
