@@ -1,7 +1,7 @@
 function RateTable(props: { rateData: (string | number)[][], visible: Boolean }) {
 
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    
+
     let objUrl;
 
     // https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
@@ -25,7 +25,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
     }
 
     makeCSVData()
-    
+
     if(props.visible) {
         return (
             <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
@@ -41,7 +41,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                                     <p><b>Click and drag </b>to select data</p>
                                 </div>
                             </span>
-                        </div>                        
+                        </div>
                     </div>
                     <button>
                         <a href={objUrl} download={"Output.csv"}>
@@ -65,7 +65,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
                                     <td className="border border-grays-300 h-12 pl-[10px] border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
-                                        <div>                                            
+                                        <div>
                                             {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
                                         </div>
                                     </td>
@@ -78,7 +78,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
             </div>
 
         )
-    }    
+    }
     return (
         <div></div>
     )

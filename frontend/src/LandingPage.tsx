@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { JoyrideState } from './Types';
 
 const substrateData = new Map<string, number[]>();
 
@@ -85,7 +86,17 @@ function getRates() {
     return allRateData;
 }
 
-function LandingPage(props: { rateData: (string | number)[][], setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>, substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
+function LandingPage(
+  props: {
+    rateData: (string | number)[][],
+    setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>,
+    substrateData: Map<string, number[]>,
+    setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>,
+    visible: Boolean,
+    setVisibility: React.Dispatch<React.SetStateAction<boolean>>,
+    joyrideState: JoyrideState,
+    setJoyrideState: React.Dispatch<React.SetStateAction<JoyrideState>>
+  }) {
     const [sheetId, setSheetId] = useState("");
     // const [sheetURL, setSheetURL] = useState("");
 
@@ -115,7 +126,14 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
     }
 
     const helpButtonClicked = () => {
-      window.location.href = "https://www.youtube.com";
+      props.setJoyrideState(prevState => ({
+        ...prevState,
+        run: true,
+        tourActive: true
+      }));
+
+      // Object.assign({run: true, tourActive: true}))
+      // window.location.href = "https://www.youtube.com";
     }
 
     return (
@@ -128,8 +146,8 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
                 <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
                 <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
                 <div className="flex justify-between items-center self-center bg-white p-[4px] h-[67px] md:w-[608px] sm:w-[80%] rounded-[40px]">
-                  <input onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
-                  <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
+                  <input id="url-input" onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
+                  <button id="calculate-button" onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
               </div>
               <div className='flex justify-end'>
