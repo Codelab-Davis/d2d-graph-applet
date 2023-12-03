@@ -13,23 +13,30 @@ function App() {
     {
       target: "#url-input",
       content: "Paste in your spreadsheet URL here!",
-      disableBeacon: true
+      disableBeacon: true,
+      disableScrolling: true
     },
     {
       target: "#calculate-button",
       content: "After pasting the link, click here!",
+      disableScrolling: true,
     },
     {
       target: "#rate-table",
-      content: "Here is the enzyme reaction rate data."
+      content: "Here is the enzyme reaction rate data.",
+      placement: "top"
     },
     {
       target: "#export-button",
-      content: "Use this button to download a csv file of the table data"
+      content: "Use this button to download a csv file of the table data",
+      disableScrolling: true,
+      placement: "top"
     },
     {
       target: "#graphs",
-      content: "These are the graphs corresponding to the rate table"
+      content: "These are the graphs corresponding to the rate table",
+      placement: "top",
+      locale: { last: "Close" }
     }
   ];
 
@@ -41,17 +48,22 @@ function App() {
       run: false,
       stepIndex: 0,
       steps: steps,
+      tourActive: false
     }
   )
 
   const handleCallback = (data: CallBackProps) => {
-    const { action, index, lifecycle, type } = data;
-    // console.log(data);
-    // if (type === "step:after" && index === 0) {
-    //   console.log("hi")
-    //   setJoyrideState(Object.assign(joyrideState, { run: false, stepIndex: -1 }))
-    // }
-    if (type === "step:after") {
+    const { action, index, /*lifecycle,*/ type, status } = data;
+    console.log(data);
+
+    if (action === "reset" || action === "close" || status === "finished") {
+      setJoyrideState(prevState => ({
+        ...prevState,
+        run: false,
+        stepIndex: 0,
+        tourActive: false
+      }))
+    } else if (type === "step:after") {
       if (index === 1) {
         setJoyrideState(prevState => ({
           ...prevState,
@@ -63,7 +75,6 @@ function App() {
           stepIndex: prevState.stepIndex + 1
         }))
       }
-
     }
   }
 
@@ -90,7 +101,6 @@ function App() {
         joyrideState={joyrideState}
         setJoyrideState={setJoyrideState}
       />
-      <p>{JSON.stringify(joyrideState)}</p>
       <RateTable rateData={rateData} visible={visibility}></RateTable>
       <GraphPage substrateData={substrateData} visible={visibility}></GraphPage>
       <Footer></Footer>

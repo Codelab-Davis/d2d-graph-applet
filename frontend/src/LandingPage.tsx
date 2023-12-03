@@ -111,11 +111,13 @@ function LandingPage(
         props.setSubstrateData(substrateData);
         props.setRateData(getRates());
         props.setVisibility(true);
-        props.setJoyrideState(prevState => ({
-          ...prevState,
-          run: true,
-          stepIndex: prevState.stepIndex + 1
-        }))
+        if (props.joyrideState.tourActive) {
+          props.setJoyrideState(prevState => ({
+            ...prevState,
+            run: true,
+            stepIndex: 2
+          }))
+        }
       })
       .catch(error => console.error(error))
     };
@@ -124,7 +126,7 @@ function LandingPage(
     // substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
     // substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
-    const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
+    const change = (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
         // setSheetURL(event.target.value);
         setSheetId(event.target.value.split('/')[5]);
@@ -135,10 +137,8 @@ function LandingPage(
         ...prevState,
         stepIndex: 0,
         run: true,
+        tourActive: true
       }));
-
-      // Object.assign({run: true, tourActive: true}))
-      // window.location.href = "https://www.youtube.com";
     }
 
     return (
