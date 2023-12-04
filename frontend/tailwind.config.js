@@ -55,7 +55,9 @@ export default {
     extend: {
       backgroundImage: {
         'landing-page': "linear-gradient(to top, rgba(148, 209, 215, 0.82), rgba(255, 255, 255, 0.82)), url('./src/assets/backgroundLandingPage.svg')",
-        'background-shape': "url('./src/assets/darkGradientBackground.svg')"
+        'background-shape': "url('./src/assets/darkGradientBackground.svg')",
+        'flagged': "linear-gradient(to bottom left, red 10%, rgba(0,0,0,0) 10%)",
+        'not-flagged': "linear-gradient(to bottom left, white 10%, rgba(0,0,0,0) 10%)"
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],

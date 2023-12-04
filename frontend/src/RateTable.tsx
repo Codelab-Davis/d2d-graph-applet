@@ -1,5 +1,7 @@
-function RateTable(props: { rateData: (string | number)[][], visible: Boolean }) {
+import { useState } from "react";
 
+function RateTable(props: { rateData: (string | number)[][], visible: Boolean }) {
+    
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     
     let objUrl;
@@ -27,6 +29,31 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
     makeCSVData()
     
     if(props.visible) {
+        const[isFlagged, setIsFlagged] = useState({
+            flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))});
+        console.log(isFlagged);
+        
+        function onCellClick(rowID:number, rowDataID:number) {
+            console.log("clicked");
+
+            setIsFlagged(({ flaggedStates }) => ({ flaggedStates:
+                flaggedStates.map((row, i) => {
+                    let newRow = row.map((cell:boolean, j:number) => {
+                        if(i == rowID && j == rowDataID) {
+                            console.log("cell");
+                            console.log(cell);
+                            return !cell
+                        }
+                        else {
+                            return cell
+                        }
+                    });
+                    console.log(newRow);
+                    return newRow;
+                })
+            }));
+        }
+        console.log(props.rateData[0].length);
         return (
             <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
@@ -52,7 +79,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                         </a>
                     </button>
                 </div>
-                <table className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl bg-white border-none">
+                <table className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl border-none">
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
@@ -64,10 +91,24 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                         {props.rateData.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border border-grays-300 h-12 pl-[10px] border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
-                                        <div>                                            
-                                            {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
-                                        </div>
+                                    <td className="border bg-white border-grays-300 h-12 border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
+                                        {(rowDataID == 0) ? 
+                                            <div className="flex justify-start items-center h-full w-full pl-[10px]">
+                                                {val}
+                                            </div> :
+                                            isFlagged.flaggedStates[rowID][rowDataID] ? 
+                                                <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged hover:bg-not-flagged">
+                                                    <div>                                                    
+                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
+                                                    </div>
+                                                </button>: 
+                                                <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] hover:bg-flagged">
+                                                    <div>                                                    
+                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
+                                                    </div>
+                                                </button>
+                                        }
+                                                  
                                     </td>
                                 ))}
                             </tr>
