@@ -12,7 +12,7 @@ const Footer = () => {
               </div>
               <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
                 <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
-                <a href="./public/assets/Operatingmanual.pdf" target = "_blank" className="flex items-center">
+                <a href="./public/Operatingmanual.pdf" target = "_blank" className="flex items-center">
                   <button type="button" className="text-white bg-secondary-600 hover:bg-secondary-700 font-semibold rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-secondary-600 dark:hover:bg-secondary-600 dark:focus:secondary-600">DOCUMENTATION</button>
                   </a>
                   <a href="" className="flex items-center">
