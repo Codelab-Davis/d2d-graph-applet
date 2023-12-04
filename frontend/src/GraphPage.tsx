@@ -31,7 +31,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                     <div className="flex gap-6">
                         <h3 className="dark:text-[#f2f2f2]">RATE VISUALIZATIONS</h3>
                         <div className="group relative w-max">
-                            <button className="mt-[8px]"><img src="/assets/grayInfoIcon.svg"/></button>
+                            <button className="mt-[8px]"><img id="graph-table-info" src="/assets/grayInfoIcon.svg"/></button>
                             <span className="pointer-events-none absolute w-max -top-[75px] md:-top-[60px] -left-[500%] md:left-[150%] rounded-[15px] bg-white dark:bg-grays-500 px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] dark:shadow-[0_7px_15px_0_rgba(255,255,255,0.10)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
@@ -59,7 +59,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                                 {rowContent.map((val, rowDataID) => (
                                     <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 text-sm" key={rowDataID}>
                                         {
-                                            typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div> 
+                                            typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div>
                                             : <div className="relative w-[98%]"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
                                         }
                                     </td>
@@ -69,7 +69,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                     </tbody>
                 </table>
             </div>
-        ) 
+        )
     }
     return <div></div>
 }

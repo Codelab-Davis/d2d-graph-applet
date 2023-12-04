@@ -3,7 +3,7 @@ import { useState } from "react";
 function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData: (string | number)[][], visible: Boolean }) {
     
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    
+
     let objUrl;
 
     // https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
@@ -27,7 +27,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
     }
 
     makeCSVData()
-    
+
     if(props.visible) {
         const[isFlagged, setIsFlagged] = useState({
             flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))});
@@ -60,7 +60,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                     <div className="flex gap-6">
                         <h3 className="dark:text-[#f2f2f2]">ENZYME REACTION RATES</h3>
                         <div className="group relative w-max">
-                            <button className="mt-[8px]"><img src="/assets/grayInfoIcon.svg"/></button>
+                            <button className="mt-[8px]"><img id="rate-table-info" src="/assets/grayInfoIcon.svg"/></button>
                             <span className="pointer-events-none absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white dark:bg-grays-500 px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] dark:shadow-[0_7px_15px_0_rgba(255,255,255,0.10)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
@@ -68,9 +68,9 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                                     <p className="dark:text-[#f2f2f2]"><b>Click and drag </b>to select data</p>
                                 </div>
                             </span>
-                        </div>                        
+                        </div>
                     </div>
-                    <button>
+                    <button id="export-button">
                         <a href={objUrl} download={"Output.csv"}>
                             <div className="flex gap-[4px] py-[6px] px-[21px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
                                 <p className="text-white font-semibold">Export</p>
@@ -78,7 +78,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                         </a>
                     </button>
                 </div>
-                <table className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl border-none">
+                <table id="rate-table" className="mb-[136px] border-separate border-spacing-0 w-full table-fixed text-left rounded-3xl border-none">
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
@@ -107,7 +107,6 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                                                     </div>
                                                 </button>
                                         }
-                                                  
                                     </td>
                                 ))}
                             </tr>
@@ -118,7 +117,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
             </div>
 
         )
-    }    
+    }
     return (
         <div ref={props.rateTableRef}></div>
     )

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { JoyrideState } from './Types';
 
 const substrateData = new Map<string, number[]>();
 
@@ -84,7 +85,6 @@ function getRates() {
     allRateData.push(currRateData);
     return allRateData;
 }
-
 const delay = (ms:number) => new Promise(
   resolve => setTimeout(resolve, ms)
 );
@@ -97,7 +97,20 @@ const handleScroll = (ref: any) => {
   });
 };
 
-function LandingPage(props: { rateTableRef: React.MutableRefObject<null>, rateData: (string | number)[][], setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>, substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
+
+function LandingPage(
+  props: {
+    rateTableRef: React.MutableRefObject<null>,
+    rateData: (string | number)[][],
+    setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>,
+    substrateData: Map<string, number[]>,
+    setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>,
+    visible: Boolean,
+    setVisibility: React.Dispatch<React.SetStateAction<boolean>>,
+    joyrideState: JoyrideState,
+    setJoyrideState: React.Dispatch<React.SetStateAction<JoyrideState>>
+  }) {
+    
     const [sheetId, setSheetId] = useState("");
     // const [sheetURL, setSheetURL] = useState("");
 
@@ -112,22 +125,29 @@ function LandingPage(props: { rateTableRef: React.MutableRefObject<null>, rateDa
         props.setSubstrateData(substrateData);
         props.setRateData(getRates());
         props.setVisibility(true);
+        if (props.joyrideState.tourActive) {
+          props.setJoyrideState(prevState => ({
+            ...prevState,
+            run: true,
+            stepIndex: 3
+          }))
+        }
       })
       .catch(error => console.error(error))
     };
 
-    // substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
-    // substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
-    // substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-
-    const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
+    const change = (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
-        // setSheetURL(event.target.value);
         setSheetId(event.target.value.split('/')[5]);
     }
 
     const helpButtonClicked = () => {
-      window.location.href = "https://www.youtube.com";
+      props.setJoyrideState(prevState => ({
+        ...prevState,
+        stepIndex: 0,
+        run: true,
+        tourActive: true
+      }));
     }
 
     return (
@@ -140,8 +160,8 @@ function LandingPage(props: { rateTableRef: React.MutableRefObject<null>, rateDa
                 <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
                 <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
                 <div className="flex justify-between items-center self-center bg-white dark:bg-grays-700 p-[4px] h-[67px] md:w-[608px] sm:w-[80%] rounded-[40px]">
-                  <input onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>
-                  <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
+                  <input id="url-input" onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>
+                  <button id="calculate-button" onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
               </div>
                 <button className="self-end" onClick={helpButtonClicked}>
