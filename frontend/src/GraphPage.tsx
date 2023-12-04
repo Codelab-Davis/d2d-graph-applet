@@ -30,7 +30,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
                         <h3>RATE VISUALIZATIONS</h3>
-                        <button><img src="./src/assets/grayInfoIcon.svg"/></button>
+                        <button><img id="graph-table-info" src="./src/assets/grayInfoIcon.svg"/></button>
                     </div>
                 </div>
                 <table id="graphs" className="border-separate border-spacing-0 w-full table-auto text-left rounded-3xl bg-white border-none">

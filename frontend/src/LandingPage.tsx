@@ -115,20 +115,15 @@ function LandingPage(
           props.setJoyrideState(prevState => ({
             ...prevState,
             run: true,
-            stepIndex: 2
+            stepIndex: 3
           }))
         }
       })
       .catch(error => console.error(error))
     };
 
-    // substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
-    // substrateData.set('A2', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
-    // substrateData.set('A3', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-
     const change = (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
-        // setSheetURL(event.target.value);
         setSheetId(event.target.value.split('/')[5]);
     }
 

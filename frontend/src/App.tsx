@@ -12,19 +12,49 @@ function App() {
   const steps: Step[] = [
     {
       target: "#url-input",
-      content: "Paste in your spreadsheet URL here!",
+      content: (
+        <div>
+          <img src='./src/assets/urlInstruction1.png'></img>
+          <p>Open your Google sheet and click Share.</p>
+        </div>
+      ),
       disableBeacon: true,
-      disableScrolling: true
+      disableScrolling: true,
+      spotlightClicks: false,
+      spotlightPadding: 0,
+      // styles: {
+      //   options: {
+      //     spotlightShadow: '3 3 2px rgba(100, 0, 0, 0.5)'
+      //   }
+      // }
+    },
+    {
+      target: "#url-input",
+      content: (
+        <div>
+          <img src='./src/assets/urlInstruction2.png'></img>
+          <p>Click the copy link button/link icon, then paste the link here.</p>
+        </div>
+      ),
+      disableBeacon: true,
+      disableScrolling: true,
+      spotlightPadding: 0
     },
     {
       target: "#calculate-button",
-      content: "After pasting the link, click here!",
+      content: "After pasting the link, click next, then click calculate!",
       disableScrolling: true,
+      spotlightClicks: false,
+      spotlightPadding: 8
     },
     {
       target: "#rate-table",
-      content: "Here is the enzyme reaction rate data.",
+      content: "Here is the enzyme reaction rate data, organized by samples.",
       placement: "top"
+    },
+    {
+      target: "#rate-table-info",
+      content: "You can hover over this icon for more information on the table."
     },
     {
       target: "#export-button",
@@ -34,10 +64,19 @@ function App() {
     },
     {
       target: "#graphs",
-      content: "These are the graphs corresponding to the rate table",
+      content: (
+        <div>
+          <img src='./src/assets/graphInfo.png'></img>
+          <p> These are the graphs corresponding to the rate table. You can view the slopes for each sample. </p>
+        </div>
+      ),
       placement: "top",
-      locale: { last: "Close" }
-    }
+    },
+    {
+      target: "#graph-table-info",
+      content: "You can hover over this icon for more information on the graphs.",
+      locale: { last: "Exit Tour" }
+    },
   ];
 
   const [substrateData, setSubstrateData] = useState(new Map<string, number[]>());
@@ -64,7 +103,7 @@ function App() {
         tourActive: false
       }))
     } else if (type === "step:after") {
-      if (index === 1) {
+      if (index === 2) {
         setJoyrideState(prevState => ({
           ...prevState,
           run: false
@@ -89,6 +128,15 @@ function App() {
         run={joyrideState.run}
         stepIndex={joyrideState.stepIndex}
         callback={handleCallback}
+        floaterProps={{
+          disableFlip: true
+        }}
+        styles={{
+          options: {
+            primaryColor: "#d66c0f",
+            textColor: "#252525"
+          }
+        }}
       />
 
       <LandingPage
