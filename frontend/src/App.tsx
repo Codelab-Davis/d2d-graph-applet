@@ -14,10 +14,14 @@ function App() {
       target: "#url-input",
       content: (
         <div>
-          <img src='./src/assets/urlInstruction1.png'></img>
+          <div className="flex justify-center">
+            <img className="w-[35%]" src='./src/assets/urlInstruction1.png'></img>
+          </div>
+          <br/>
           <p>Open your Google sheet and click Share.</p>
         </div>
       ),
+      placement: "top",
       disableBeacon: true,
       disableScrolling: true,
       spotlightClicks: false,
@@ -32,10 +36,14 @@ function App() {
       target: "#url-input",
       content: (
         <div>
-          <img src='./src/assets/urlInstruction2.png'></img>
+          <div className="flex justify-center">
+            <img className="w-[35%]" src='./src/assets/urlInstruction2.png'></img>
+          </div>
+          <br/>
           <p>Click the copy link button/link icon, then paste the link here.</p>
         </div>
       ),
+      placement: "top",
       disableBeacon: true,
       disableScrolling: true,
       spotlightPadding: 0
@@ -54,19 +62,21 @@ function App() {
     },
     {
       target: "#rate-table-info",
-      content: "You can hover over this icon for more information on the table."
+      content: "You can hover over this icon for more information on the table.",
+      disableScrolling: true,
     },
     {
       target: "#export-button",
       content: "Use this button to download a csv file of the table data",
       disableScrolling: true,
-      placement: "top"
+      // placement: "top"
     },
     {
       target: "#graphs",
       content: (
         <div>
           <img src='./src/assets/graphInfo.png'></img>
+          <br/>
           <p> These are the graphs corresponding to the rate table. You can view the slopes for each sample. </p>
         </div>
       ),
