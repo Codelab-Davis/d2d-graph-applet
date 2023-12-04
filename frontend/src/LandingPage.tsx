@@ -85,18 +85,6 @@ function getRates() {
     allRateData.push(currRateData);
     return allRateData;
 }
-const delay = (ms:number) => new Promise(
-  resolve => setTimeout(resolve, ms)
-);
-
-const handleScroll = (ref: any) => {
-  window.scrollTo({
-    top: ref.offsetTop,
-    left: 0,
-    behavior: "smooth",
-  });
-};
-
 
 function LandingPage(
   props: {
