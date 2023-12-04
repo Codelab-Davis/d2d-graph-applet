@@ -5,13 +5,13 @@ const substrateData = new Map<string, number[]>();
 function getData(data:[]){
     const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-  
+
     for (let dataIndex = 0; dataIndex < data.length; dataIndex++ ){
       for (let letter = 0; letter < letters.length; letter ++) {
         for (let number = 0; number < numbers.length; number ++) {
           let substrate = letters[letter] + numbers[number];
           // console.log(data[dataIndex][substrate]);
-  
+
           if (dataIndex == 0) {
             substrateData.set(substrate, []);
           }
@@ -37,12 +37,12 @@ function getData(data:[]){
         window.push([i, data[i]]);
       }
     }
-    
+
     tempSlope = findSlope(window);
     maxSlope = Math.max(maxSlope, tempSlope);
     return parseFloat(maxSlope.toPrecision(4));
   }
-  
+
 function findSlope(points:number[][]) {
     let size = points.length;
     let sumx = 0;
@@ -72,7 +72,7 @@ function getRates() {
         if(i == 0) {
             currSubstrate = substrateTypes[i][0];
             currRateData.push(currSubstrate);
-        }           
+        }
         if(substrateTypes[i][0] != currSubstrate) {
             currSubstrate = substrateTypes[i][0];
             allRateData.push(currRateData);
@@ -83,11 +83,11 @@ function getRates() {
     }
     allRateData.push(currRateData);
     return allRateData;
-}   
+}
 
 function LandingPage(props: { rateData: (string | number)[][], setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>, substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [sheetId, setSheetId] = useState("");
-    const [sheetURL, setSheetURL] = useState("");
+    // const [sheetURL, setSheetURL] = useState("");
 
     const click = ()=>{
     fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
@@ -101,7 +101,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
         props.setRateData(getRates());
         props.setVisibility(true);
       })
-      .catch(error => console.error(error))      
+      .catch(error => console.error(error))
     };
 
     // substrateData.set('A1', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]);
@@ -110,7 +110,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
 
     const change =  (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
-        setSheetURL(event.target.value);
+        // setSheetURL(event.target.value);
         setSheetId(event.target.value.split('/')[5]);
     }
 
@@ -139,7 +139,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
           </div>
         </div>
       </div>
-  
+
     )
 }
 
