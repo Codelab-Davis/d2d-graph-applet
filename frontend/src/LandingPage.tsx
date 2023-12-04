@@ -112,7 +112,6 @@ function LandingPage(props: { rateTableRef: React.MutableRefObject<null>, rateDa
         props.setSubstrateData(substrateData);
         props.setRateData(getRates());
         props.setVisibility(true);
-        handleScroll(props.rateTableRef.current);
       })
       .catch(error => console.error(error))
     };
