@@ -1,14 +1,14 @@
 const Footer = () => {
     return (
       <>
-        <footer className="dark:bg-gray-900">
+        <footer className="dark:bg-grays-600 rounded-t-[35px]">
           <div className="mx-auto w-[95%] p-4 py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                 <a href="https://d2d.ucdavis.edu/" className="flex sm:mx-auto items-center">
                   <img src='/assets/d2dlogo.png' className='object-contain ml-1 mt-1 mb-[13px] w-[140px] min-[1450px]:w-[160px] min-[1650px]:w-[180px]'></img>
                 </a>
-                <span className="self-center ml-1 text-2xl whitespace-nowrap dark:black font-semibold">Enzyme Rate Calculator</span>
+                <span className="self-center ml-1 text-2xl whitespace-nowrap dark:text-white font-semibold">Enzyme Rate Calculator</span>
               </div>
               <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
                 <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
@@ -22,21 +22,21 @@ const Footer = () => {
             <div className="mt-[56px] mb-[16px] w-fill h-[1px] rounded-[2px] bg-grays-400"/>
             <div className="sm:flex sm:items-center sm:justify-between">
               <div className="flex gap-2 justify-center justify-items-center items-center">
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                <span className="text-sm text-gray-500 sm:text-center dark:text-white">
                   Made with
                 </span>
                 <img src="/assets/coffee.svg"/>
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                <span className="text-sm text-gray-500 sm:text-center dark:text-white">
                   by
                 </span>
-              <img className='w-[92px]' src='/assets/codelabLogo.svg'/>
+                <div className="w-[92px] h-[17px] bg-contain bg-no-repeat bg-[url('/assets/codelabLogo.svg')] dark:bg-[url('/assets/codelabLogoWhite.svg')] dark:h-[24px] dark:bg-cover"></div>
               </div>
               <div className="flex gap-3 lg:gap-[40px] mt-4 sm:justify-center sm:mt-0">
-                <a href="https://d2d.ucdavis.edu/" className="hover:underline text-grays-700" >Contact Us</a>
-                <a href="#" className="hover:underline text-grays-700">About D2D</a>
-                <a href="#" className="hover:underline text-grays-700">Privacy Policy</a>
-                <a href="#" className="hover:underline text-grays-700">Terms of Service</a>
-                <a href="#" className="hover:underline text-grays-700">Cookies</a>
+                <a href="https://d2d.ucdavis.edu/" className="hover:underline text-grays-700 dark:text-[#f2f2f2]" >Contact Us</a>
+                <a href="#" className="hover:underline text-grays-700 dark:text-[#f2f2f2]">About D2D</a>
+                <a href="#" className="hover:underline text-grays-700 dark:text-[#f2f2f2]">Privacy Policy</a>
+                <a href="#" className="hover:underline text-grays-700 dark:text-[#f2f2f2]">Terms of Service</a>
+                <a href="#" className="hover:underline text-grays-700 dark:text-[#f2f2f2]">Cookies</a>
               </div>
             </div>
           </div>
