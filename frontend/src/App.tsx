@@ -162,7 +162,7 @@ function App() {
         joyrideState={joyrideState}
         setJoyrideState={setJoyrideState}
       />
-      <RateTable rateData={rateData} visible={visibility}></RateTable>
+      <RateTable rateTableRef={rateTableRef} rateData={rateData} visible={visibility}></RateTable>
       <GraphPage substrateData={substrateData} visible={visibility}></GraphPage>
 
       <Footer></Footer>
