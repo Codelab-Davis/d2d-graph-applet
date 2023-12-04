@@ -12,8 +12,10 @@ const Footer = () => {
               </div>
               <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
                 <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
-                <a href="https://d2d.ucdavis.edu/" className="flex items-center">
+                <a href="./public/assets/Operatingmanual.pdf" target = "_blank" className="flex items-center">
                   <button type="button" className="text-white bg-secondary-600 hover:bg-secondary-700 font-semibold rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-secondary-600 dark:hover:bg-secondary-600 dark:focus:secondary-600">DOCUMENTATION</button>
+                  </a>
+                  <a href="" className="flex items-center">
                   <button type="button" className="py-2.5 px-5 me-2 mb-2 text-base font-semibold text-gray-900 bg-white rounded-full border border-grays-300 hover:bg-grays-300 focus:z-10 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-secondary-600">TRY A DEMO</button>
                 </a>
                 </div>
