@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function RateTable(props: { rateData: (string | number)[][], visible: Boolean }) {
+function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData: (string | number)[][], visible: Boolean }) {
     
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     
@@ -55,7 +55,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
         }
         console.log(props.rateData[0].length);
         return (
-            <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
+            <div ref={props.rateTableRef} className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
                         <h3 className="dark:text-[#f2f2f2]">ENZYME REACTION RATES</h3>
@@ -120,7 +120,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
         )
     }    
     return (
-        <div></div>
+        <div ref={props.rateTableRef}></div>
     )
 }
 export default RateTable;

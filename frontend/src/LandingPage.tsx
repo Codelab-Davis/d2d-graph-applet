@@ -85,7 +85,19 @@ function getRates() {
     return allRateData;
 }
 
-function LandingPage(props: { rateData: (string | number)[][], setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>, substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
+const delay = (ms:number) => new Promise(
+  resolve => setTimeout(resolve, ms)
+);
+
+const handleScroll = (ref: any) => {
+  window.scrollTo({
+    top: ref.offsetTop,
+    left: 0,
+    behavior: "smooth",
+  });
+};
+
+function LandingPage(props: { rateTableRef: React.MutableRefObject<null>, rateData: (string | number)[][], setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>, substrateData: Map<string, number[]>, setSubstrateData: React.Dispatch<React.SetStateAction<Map<string, number[]>>>, visible: Boolean, setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [sheetId, setSheetId] = useState("");
     // const [sheetURL, setSheetURL] = useState("");
 
@@ -100,6 +112,7 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
         props.setSubstrateData(substrateData);
         props.setRateData(getRates());
         props.setVisibility(true);
+        handleScroll(props.rateTableRef.current);
       })
       .catch(error => console.error(error))
     };
