@@ -132,9 +132,9 @@ function LandingPage(props: { rateData: (string | number)[][], setRateData: Reac
                   <button onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
               </div>
-              <div className='flex justify-end'>
-                <button><img src="./src/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]" /></button>
-              </div>
+                <button className="self-end" onClick={helpButtonClicked}>
+                  <div className="bg-[url('./src/assets/helpButton.svg')] hover:bg-[url('./src/assets/helpButtonHover.svg')] mb-[18px] mr-[18px] h-[49px] w-[49px]"></div>
+                </button>
             </div>
           </div>
         </div>
