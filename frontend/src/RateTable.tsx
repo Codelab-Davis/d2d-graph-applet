@@ -60,11 +60,11 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                     <div className="flex gap-6">
                         <h3>ENZYME REACTION RATES</h3>
                         <div className="group relative w-max">
-                            <button className="mt-[8px]"><img src="./src/assets/grayInfoIcon.svg"/></button>
+                            <button className="mt-[8px]"><img src="/assets/grayInfoIcon.svg"/></button>
                             <span className="pointer-events-none absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
-                                    <p><b>Right-click </b>to flag data</p>
+                                    <p><b>Left-click </b>to flag data</p>
                                     <p><b>Click and drag </b>to select data</p>
                                 </div>
                             </span>
@@ -72,7 +72,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                     </div>
                     <button>
                         <a href={objUrl} download={"Output.csv"}>
-                            <div className="flex gap-[4px] py-[6px] px-[15px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
+                            <div className="flex gap-[4px] py-[6px] px-[21px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
                                 <p className="text-white font-semibold">Export</p>
                             </div>
                         </a>
@@ -92,7 +92,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                                 {rowContent.map((val, rowDataID) => (
                                     <td className="border bg-white border-grays-300 h-12 border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
                                         {(rowDataID == 0) ? 
-                                            <div className="flex justify-start items-center h-full w-full pl-[10px]">
+                                            <div className="flex justify-center items-center h-full w-full">
                                                 {val}
                                             </div> :
                                             isFlagged.flaggedStates[rowID][rowDataID] ? 
