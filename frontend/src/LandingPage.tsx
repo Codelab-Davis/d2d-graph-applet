@@ -85,9 +85,22 @@ function getRates() {
     allRateData.push(currRateData);
     return allRateData;
 }
+const delay = (ms:number) => new Promise(
+  resolve => setTimeout(resolve, ms)
+);
+
+const handleScroll = (ref: any) => {
+  window.scrollTo({
+    top: ref.offsetTop,
+    left: 0,
+    behavior: "smooth",
+  });
+};
+
 
 function LandingPage(
   props: {
+    rateTableRef: React.MutableRefObject<null>,
     rateData: (string | number)[][],
     setRateData: React.Dispatch<React.SetStateAction<(string | number)[][]>>,
     substrateData: Map<string, number[]>,
@@ -97,6 +110,7 @@ function LandingPage(
     joyrideState: JoyrideState,
     setJoyrideState: React.Dispatch<React.SetStateAction<JoyrideState>>
   }) {
+    
     const [sheetId, setSheetId] = useState("");
     // const [sheetURL, setSheetURL] = useState("");
 
@@ -140,19 +154,19 @@ function LandingPage(
       <div>
         <div className='flex flex-col justify-center items-center h-screen'>
           <div className="flex flex-col w-[95%]">
-            <div className="flex flex-col justify-start bg-background-shape bg-cover h-[90vh] rounded-3xl">
-              <img src='./src/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[140px] min-[1450px]:w-[160px] min-[1650px]:w-[180px]'></img>
+            <div className="flex flex-col justify-start bg-background-gradient dark:bg-background-gradient-dark bg-cover h-[90vh] rounded-3xl">
+              <img src='/assets/d2dlogo.png' className='object-contain ml-7 mt-1 w-[140px] min-[1450px]:w-[160px] min-[1650px]:w-[180px]'></img>
               <div className="flex flex-col flex-grow justify-center">
                 <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
                 <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
-                <div className="flex justify-between items-center self-center bg-white p-[4px] h-[67px] md:w-[608px] sm:w-[80%] rounded-[40px]">
-                  <input id="url-input" onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none" placeholder='Paste URL'></input>
+                <div className="flex justify-between items-center self-center bg-white dark:bg-grays-700 p-[4px] h-[67px] md:w-[608px] sm:w-[80%] rounded-[40px]">
+                  <input id="url-input" onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>
                   <button id="calculate-button" onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
               </div>
-              <div className='flex justify-end'>
-                <button><img src="./src/assets/helpButton.svg" onClick={helpButtonClicked} className="pb-[18px] pr-[18px]" /></button>
-              </div>
+                <button className="self-end" onClick={helpButtonClicked}>
+                  <div className="bg-[url('/assets/helpButton.svg')] hover:bg-[url('/assets/helpButtonHover.svg')] mb-[18px] mr-[18px] h-[49px] w-[49px]"></div>
+                </button>
             </div>
           </div>
         </div>

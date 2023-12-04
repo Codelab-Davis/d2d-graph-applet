@@ -45,7 +45,7 @@ export default {
         400: '#d8d8d8',
         500: '#8e8e8e',
         600: '#575757',
-        700: '#494949',
+        700: '#2f2f2f',
       },
       'red': {
         1: '#ed6555',
@@ -54,8 +54,10 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'landing-page': "linear-gradient(to top, rgba(148, 209, 215, 0.82), rgba(255, 255, 255, 0.82)), url('./src/assets/backgroundLandingPage.svg')",
-        'background-shape': "url('./src/assets/darkGradientBackground.svg')"
+        'background-gradient': "url('/assets/gradientBackground.svg')",
+        'background-gradient-dark': "url('/assets/darkGradientBackground.svg')",
+        'flagged': "linear-gradient(to bottom left, rgba(255, 56, 34, 1) 10%, rgba(0,0,0,0) 10%)",
+        'not-flagged': "linear-gradient(to bottom left, white 10%, rgba(0,0,0,0) 10%)"
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],

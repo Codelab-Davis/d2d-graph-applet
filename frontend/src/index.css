@@ -36,6 +36,7 @@
     @apply text-base;
     @apply font-inter;
     @apply font-normal;
+    padding: 0px;
   }
   th:first-child {
     border-top-left-radius: 10px;
@@ -57,8 +58,18 @@
     padding-left: 0px;
   }
 
-  td:last-child {
-    border-color: #e4e4e4;
-    border-width: 1px;
+  @media (prefers-color-scheme:dark) {
+    td:first-child {
+      border-color:#7da3a5;
+      background: #638083;
+    }
+  }
+}
+
+@layer utilities {
+  .flagged {
+    background: red;
+    -webkit-clip-path: polygon(83% 0, 100% 24%, 100% 0);
+    clip-path: polygon(83% 0, 100% 24%, 100% 0);
   }
 }

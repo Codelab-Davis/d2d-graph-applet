@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import './App.css';
 import LandingPage from './LandingPage';
@@ -101,6 +101,8 @@ function App() {
     }
   )
 
+  const rateTableRef = useRef(null);
+
   const handleCallback = (data: CallBackProps) => {
     const { action, index, /*lifecycle,*/ type, status } = data;
     console.log(data);
@@ -128,7 +130,7 @@ function App() {
   }
 
   return (
-    <div className="bg-[#fdfdfd]">
+    <div className="bg-[#fdfdfd] dark:bg-grays-700">
       <Joyride
         continuous
         disableOverlayClose
@@ -150,6 +152,7 @@ function App() {
       />
 
       <LandingPage
+        rateTableRef={rateTableRef}
         rateData={rateData}
         setRateData={setRateData}
         substrateData={substrateData}
@@ -161,6 +164,7 @@ function App() {
       />
       <RateTable rateData={rateData} visible={visibility}></RateTable>
       <GraphPage substrateData={substrateData} visible={visibility}></GraphPage>
+
       <Footer></Footer>
     </div>
   )
