@@ -60,8 +60,8 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                     <div className="flex gap-6">
                         <h3>ENZYME REACTION RATES</h3>
                         <div className="group relative w-max">
-                            <button className="mt-[6px]"><img src="./src/assets/grayInfoIcon.svg"/></button>
-                            <span className="absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
+                            <button className="mt-[8px]"><img src="./src/assets/grayInfoIcon.svg"/></button>
+                            <span className="pointer-events-none absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
                                     <p><b>Right-click </b>to flag data</p>
@@ -72,9 +72,8 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                     </div>
                     <button>
                         <a href={objUrl} download={"Output.csv"}>
-                            <div className="flex gap-[4px] py-[6px] pl-[15px] pr-[8px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
+                            <div className="flex gap-[4px] py-[6px] px-[15px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px]">
                                 <p className="text-white font-semibold">Export</p>
-                                <img src="./src/assets/exportDropDown.svg"/>
                             </div>
                         </a>
                     </button>
@@ -97,7 +96,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                                                 {val}
                                             </div> :
                                             isFlagged.flaggedStates[rowID][rowDataID] ? 
-                                                <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged hover:bg-not-flagged">
+                                                <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged">
                                                     <div>                                                    
                                                         {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
                                                     </div>
