@@ -58,9 +58,11 @@
     padding-left: 0px;
   }
 
-  td:last-child {
-    border-color: #e4e4e4;
-    border-width: 1px;
+  @media (prefers-color-scheme:dark) {
+    td:first-child {
+      border-color:#7da3a5;
+      background: #638083;
+    }
   }
 }
 

@@ -58,14 +58,14 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
             <div className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
                     <div className="flex gap-6">
-                        <h3>ENZYME REACTION RATES</h3>
+                        <h3 className="dark:text-[#f2f2f2]">ENZYME REACTION RATES</h3>
                         <div className="group relative w-max">
                             <button className="mt-[8px]"><img src="/assets/grayInfoIcon.svg"/></button>
-                            <span className="pointer-events-none absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white px-[15px] py-[20px]
-                            text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] transition-opacity group-hover:opacity-100">
+                            <span className="pointer-events-none absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white dark:bg-grays-500 px-[15px] py-[20px]
+                            text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] dark:shadow-[0_7px_15px_0_rgba(255,255,255,0.10)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
-                                    <p><b>Left-click </b>to flag data</p>
-                                    <p><b>Click and drag </b>to select data</p>
+                                    <p className="dark:text-[#f2f2f2]"><b>Left-click </b>to flag data</p>
+                                    <p className="dark:text-[#f2f2f2]"><b>Click and drag </b>to select data</p>
                                 </div>
                             </span>
                         </div>                        
@@ -82,7 +82,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
-                                <th className="border border-primary-700 bg-primary-500 text-white h-12 pl-[10px] border-b-0" key={headID}>{head}</th>
+                                <th className="border border-primary-700 bg-primary-500 dark:bg-[#33696d] dark:border-[#4e9095] text-white h-12 pl-[10px] border-b-0" key={headID}>{head}</th>
                             ))}
                         </tr>
                     </thead>
@@ -90,7 +90,7 @@ function RateTable(props: { rateData: (string | number)[][], visible: Boolean })
                         {props.rateData.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border bg-white border-grays-300 h-12 border-t-0 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm" key={rowDataID}>
+                                    <td className="border bg-white border-grays-300 dark:bg-[#636363] dark:border-[#8a8a8a] h-12 border-t-1 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm dark:text-[#f2f2f2]" key={rowDataID}>
                                         {(rowDataID == 0) ? 
                                             <div className="flex justify-center items-center h-full w-full">
                                                 {val}
