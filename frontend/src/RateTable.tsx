@@ -90,7 +90,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                         {props.rateData.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border bg-white border-grays-300 dark:bg-[#636363] dark:border-[#8a8a8a] h-12 border-t-1 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm dark:text-[#f2f2f2]" key={rowDataID}>
+                                    <td className="border bg-white hover:bg-grays-300 dark:hover:bg-grays-500 border-grays-300 dark:bg-[#636363] dark:border-[#8a8a8a] h-12 border-t-1 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm dark:text-[#f2f2f2]" key={rowDataID}>
                                         {(rowDataID == 0) ? 
                                             <div className="flex justify-center items-center h-full w-full">
                                                 {val}

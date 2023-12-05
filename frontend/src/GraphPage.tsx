@@ -41,7 +41,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                         </div>
                     </div>
                 </div>
-                <table className="border-separate border-spacing-0 w-full table-auto text-left rounded-3xl bg-white dark:bg-[#636363] border-none">
+                <table id="graphs" className="border-separate border-spacing-0 w-full table-auto text-left rounded-3xl bg-white dark:bg-[#636363] border-none">
                     <thead>
                         <tr>
                             {headers.map((head, headID) => (
