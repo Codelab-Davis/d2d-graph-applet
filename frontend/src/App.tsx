@@ -85,6 +85,7 @@ function App() {
     {
       target: "#graph-table-info",
       content: "You can hover over this icon for more information on the graphs.",
+      disableScrolling: true,
       locale: { last: "Exit Tour" }
     },
   ];
