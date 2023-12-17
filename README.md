@@ -4,13 +4,13 @@
 Clone Project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Codelab-Davis/d2d-graph-applet.git
 ```
 
 Go to the project directory in Terminal, Powershell, or Command Prompt
 
 ```bash
-  cd my-project
+  cd d2d-graph-applet
 ```
 
 Install dependencies
@@ -39,11 +39,11 @@ To ensure you are consistently creating a new branch with the latest version of 
 ```git branch local-branch origin/dev```
 - Switch to the newly created local branch
 ```git checkout local-branch```
-.Now, you can proceed to work on your task on this branch. 
+Now, you can proceed to work on your task on this branch. 
 
 - Additionally, it's advisable to run the following command each time you create a new branch:
 ```npm install```
-.This ensures that your local environment is up to date with the dependencies required for your project.
+This ensures that your local environment is up to date with the dependencies required for your project.
 
 ### 2. Naming the branch
 Ensure frequent commits (Suggestion - after finishing for the day or every hour).
@@ -53,7 +53,9 @@ Ensure frequent commits (Suggestion - after finishing for the day or every hour)
 ### 3. Creating Pull requests
 Use the provided pull request template to follow standard procedures when approaching pull requests.
     
-    ## **Jira Issue ticket number and link**## **Type of change**
+    ## **Jira Issue ticket number and link**
+    
+    ## **Type of change**
     
     Please delete options that are not relevant.
     
@@ -221,6 +223,8 @@ Once successful with a single graph, we streamlined the process for the remainin
 # Product Walkthrough
 
 We designed the website to be as intuitive as possible, especially for new users. But, in case the user is unsure about any parts of the website, we decided to include a walkthrough that highlights important parts of the webpage and how the user can interact with it. This was implemented using React Joyride, a React library for guided tours of a webpage. The tour works by applying a spotlight on an element in the webpage, and provides useful notes for the user.
+
+![34](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/ea8042b9-78a5-49f1-9c71-c206602480e2)
 
 We started with getting React Joyride integrated with our app, which required some thought in terms of managing states relevant to the tour setup and passing it to the right components on the page. Then, we setup the steps of the tour, which highlights the workflow of the app. It starts with the user input for the Google Sheets URL, then after displaying some useful information about finding the correct link to upload, the tour highlights the rest of the app including the table, graphs, and how the user can interact with these and download them if desired.
 
