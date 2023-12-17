@@ -87,7 +87,9 @@ The central goal of this research is to unravel the intricate relationship betwe
 # Our Task
 
 Our task within the framework of D2D was to develop a web application aimed at streamlining the calculation of enzyme reaction rates and generating graphs from student-generated data. Our focus was on efficiently identifying the steepest slope in absorbance data collected at various timepoints that was collected using a spectrophotometer.
-![d2d logo (1)](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/383751eb-a682-4fc0-b02e-89f90a5e610d)
+
+![355shots_so-removebg-preview](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/46c2dcd6-8abb-4148-bffe-66983376c44a)
+
 *The over-arching objective of this project was to provide a user-friendly solution, enabling students from all D2D institutions to effortlessly gather high-quality data on enzyme functionality.*
 
 # Timeframe
