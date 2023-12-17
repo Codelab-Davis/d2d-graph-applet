@@ -203,11 +203,9 @@ We started with getting React Joyride integrated with our app, which required so
 # Designs
 <img width="2151" alt="Group 1000000862 (1)" src="https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/961e574b-9f5b-4762-a278-975dcee4ee4c">
 
-To maintain a consistent brand identity with D2D, We took color inspiration from their website that utilized different shades of teals and oranges. We used teal for the majority of the design and orange draw attention to buttons and interactions, ensuring the colors met the WCAG accessibility standards. We also utilized components for the tables and graphs for scalability and for the interactive buttons and icons to keep the design minimalistic but intuitive for the user.
+To maintain a consistent brand identity with D2D, We took color inspiration from their website that utilized different shades of teals and oranges. We used teal for the majority of the design and orange draw attention to buttons and interactions, ensuring the colors met the WCAG accessibility standards. We also utilized components for the tables and graphs for scalability and for the interactive buttons and icons to keep the design minimalistic but intuitive for the user. We chose Manrope as our primary font because of it’s simplicity and readability that makes it ideal for our data visualizations and text. Its modern aesthetic also further enhances the overall design.
 
-We chose Manrope as our primary font because of it’s simplicity and readability that makes it ideal for our data visualizations and text. Its modern aesthetic also further enhances the overall design.
-
-Click to Know more about the journey - https://medium.com/@mohnish.gopi/d2d-enzyme-rate-calculator-c1cc87f268f4
+***Click to Know more about the journey*** - https://medium.com/@mohnish.gopi/d2d-enzyme-rate-calculator-c1cc87f268f4
 
 # Challenges
 
@@ -218,9 +216,9 @@ Team meetings/ General meeting/ Final Presentations / CodeLab Banquet ‘23
 ## Development
 
 1. ***Parsing/Storing Data Efficiently:*** One of the initial challenges was that we had to devise efficient algorithms and data structures to ensure seamless data processing and storage, avoiding bottlenecks that could hamper performance.
-2. ***Integrating Chart.js with Vite:***The decision to use Chart.js for data visualization came with its own set of challenges, especially when integrating it with the Vite build tool.
-3. ***One Developer less:***Losing a team member midway through the development phase was an unforeseen setback and the team had to redistribute workloads.
-4. ***Limited Data:***Working with limited data presented challenges in accurately simulating real-world lab scenarios. As a result, we were unable to refine or fine-tune the model to different input scenarios.
+2. ***Integrating Chart.js with Vite:*** The decision to use Chart.js for data visualization came with its own set of challenges, especially when integrating it with the Vite build tool.
+3. ***One Developer less:*** Losing a team member midway through the development phase was an unforeseen setback and the team had to redistribute workloads.
+4. ***Limited Data:*** Working with limited data presented challenges in accurately simulating real-world lab scenarios. As a result, we were unable to refine or fine-tune the model to different input scenarios.
 
 ## **Design**
 
