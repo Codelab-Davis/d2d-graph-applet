@@ -21,12 +21,12 @@ To ensure you are consistently creating a new branch with the latest version of 
 ```npm install```
 .This ensures that your local environment is up to date with the dependencies required for your project.
 
-### Naming the branch
+### 2. Naming the branch
 Ensure frequent commits (Suggestion - after finishing for the day or every hour).
 
 - As a rule, adhere to kebab case when naming branches, using the **[TICKET NUMBER]-descriptive-title** format. For instance, if the Jira task is "D2D-8," the branch should be named as [8]-descriptive-title.
 
-### Creating Pull requests
+### 3. Creating Pull requests
 Use the provided pull request template to follow standard procedures when approaching pull requests.
     
     ## **Jira Issue ticket number and link**## **Type of change**
@@ -57,7 +57,7 @@ Use the provided pull request template to follow standard procedures when approa
     - **Purpose** - outline the goals the PR achieves and how
     - **Screenshots** - Images of the changes or screenshots of the code editor for structural changes
 
-### Approving Pull Requests
+### 4. Approving Pull Requests
 - When possible, all developers should approve.
     - Read the code and offer suggestions.
     - Don't overly stress about addressing comments unless they're crucial or time permits.
@@ -65,7 +65,7 @@ Use the provided pull request template to follow standard procedures when approa
 - **Delete all merged branches.**
     - This simplifies the review of merged PRs for unaddressed changes later on.
 
-## Linting
+### 5. Linting
 To lint the frontend, run the following command:
 
 ```npm run lint```
@@ -87,7 +87,7 @@ The central goal of this research is to unravel the intricate relationship betwe
 # Our Task
 
 Our task within the framework of D2D was to develop a web application aimed at streamlining the calculation of enzyme reaction rates and generating graphs from student-generated data. Our focus was on efficiently identifying the steepest slope in absorbance data collected at various timepoints that was collected using a spectrophotometer.
-
+![d2d logo (1)](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/383751eb-a682-4fc0-b02e-89f90a5e610d)
 *The over-arching objective of this project was to provide a user-friendly solution, enabling students from all D2D institutions to effortlessly gather high-quality data on enzyme functionality.*
 
 # Timeframe
@@ -101,13 +101,6 @@ September — December 2023 | 6 weeks
 **Development —** React, Tailwind-CSS, Chart.js, React-Joyride
 
 **Maintenance —** Jira, Notion, Slack, Github
-
-# Design System
-
-To maintain a consistent brand identity with D2D, We took color inspiration from their website that utilized different shades of teals and oranges. We used teal for the majority of the design and orange draw attention to buttons and interactions, ensuring the colors met the WCAG accessibility standards. We also utilized components for the tables and graphs for scalability and for the interactive buttons and icons to keep the design minimalistic but intuitive for the user.
-
-We chose Manrope as our primary font because of it’s simplicity and readability that makes it ideal for our data visualizations and text. Its modern aesthetic also further enhances the overall design.
-<img width="2151" alt="Group 1000000862 (1)" src="https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/961e574b-9f5b-4762-a278-975dcee4ee4c">
 
 # **Input parsing**
 
@@ -199,6 +192,15 @@ Once successful with a single graph, we streamlined the process for the remainin
 We designed the website to be as intuitive as possible, especially for new users. But, in case the user is unsure about any parts of the website, we decided to include a walkthrough that highlights important parts of the webpage and how the user can interact with it. This was implemented using React Joyride, a React library for guided tours of a webpage. The tour works by applying a spotlight on an element in the webpage, and provides useful notes for the user.
 
 We started with getting React Joyride integrated with our app, which required some thought in terms of managing states relevant to the tour setup and passing it to the right components on the page. Then, we setup the steps of the tour, which highlights the workflow of the app. It starts with the user input for the Google Sheets URL, then after displaying some useful information about finding the correct link to upload, the tour highlights the rest of the app including the table, graphs, and how the user can interact with these and download them if desired.
+
+# Design System
+
+To maintain a consistent brand identity with D2D, We took color inspiration from their website that utilized different shades of teals and oranges. We used teal for the majority of the design and orange draw attention to buttons and interactions, ensuring the colors met the WCAG accessibility standards. We also utilized components for the tables and graphs for scalability and for the interactive buttons and icons to keep the design minimalistic but intuitive for the user.
+
+We chose Manrope as our primary font because of it’s simplicity and readability that makes it ideal for our data visualizations and text. Its modern aesthetic also further enhances the overall design.
+<img width="2151" alt="Group 1000000862 (1)" src="https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/961e574b-9f5b-4762-a278-975dcee4ee4c">
+
+Click to Know more about the journey - 
 
 # Challenges
 
