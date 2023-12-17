@@ -78,8 +78,10 @@ To run the linter and fix all the errors, run the following command:
 
 https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/b6949863-c630-4140-86d1-3435475ab67e
 
-Link to Sample Google Sheets URL - https://docs.google.com/spreadsheets/d/1ze6Ur715kopuquPLb3ntFw2aWAiX7lr1exdeCtuwtJE/edit#gid=0
-Check it out - d2d-graph-applet-codelabdavis-projects.vercel.app
+### Check it out
+- https://d2d-graph-applet-codelabdavis-projects.vercel.app/
+### Link to Sample Google Sheets URL 
+- https://docs.google.com/spreadsheets/d/1ze6Ur715kopuquPLb3ntFw2aWAiX7lr1exdeCtuwtJE/edit#gid=0
 
 # The Client
 
