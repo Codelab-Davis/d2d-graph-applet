@@ -1,11 +1,35 @@
 ![396shots_so](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/209c3ad2-1e34-45d8-9ec0-fdd36b4dac15)
 # Developer Setup
+  
+Clone Project
 
-1. Clone this repository with `git` in whichever way you are most comfortable with
-(Make sure you will be able to push later)  
-2. Open up the directory/folder in Terminal, Powershell, or Command Prompt and run `npm 
-5. Start the frontend with `npm start
-   * The script should then automatically restart itself whenever changes are detected.
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory in Terminal, Powershell, or Command Prompt
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Navigate to frontend
+
+```bash
+  cd frontend
+```
+
+Start the server
+
+```bash
+  npm run start
+```
   
 # Developer Guidelines
 
