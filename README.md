@@ -13,16 +13,81 @@ format `VARIABLE_NAME=VARIABLE_VALUE`.
 5. Start the frontend with `npm start` or the backend with `nodemon server`  
    * The script should then automatically restart itself whenever changes are detected.
 
-# Git Pull + create new branch
+# Developer Guidelines
+To ensure you are consistently creating a new branch with the latest version of the dev branch, execute the following commands:
+### Copy the entire dev branch from the GitHub repository to a new local branch
+```git branch local-branch origin/dev```
+### Switch to the newly created local branch
+```git checkout local-branch```
+Now, you can proceed to work on your task on this branch. 
+### Install npm packages
+Additionally, it's advisable to run the following command each time you create a new branch:
+```npm install```
+This ensures that your local environment is up to date with the dependencies required for your project.
 
-To ensure you are always creating a new branch with the most recent version of the dev branch, run this
-command `git branch local-branch origin/dev`.   
-This copies the entire dev branch on this GitHub repo onto a new local branch. To work on that branch,
-run `git checkout local-branch`. Work on your task here.   
-Every time you do this, it is a good idea to run `npm install` in both the lunchroom folder and the backend
-folder (`cd backend`)
+### Branch Naming
+<aside>
+💡 Ensure frequent commits (Suggestion - after finishing for the day or every hour).
+</aside>
+Branch naming is **crucial! Always adhere to kebab case. Every branch should be named as [TICKET NUMBER]-descriptive-title. For instance, if the Jira task is "D2D-8," name it as [8]-descriptive-title.
 
-### Linting
+Pull Requests
+Follow standard procedures when approaching pull requests.
+
+Use a pull request template, which will be created and pushed soon.
+
+
+## Creating a New Branch from Dev
+
+To ensure you always work with the latest version of the dev branch, follow these commands:
+
+```bash
+# Copy the entire dev branch from the GitHub repository to a new local branch
+git branch local-branch origin/dev
+
+# Switch to the newly created local branch
+git checkout local-branch
+
+## **Jira Issue ticket number and link**
+
+## **Type of change**
+
+Please delete options that are not relevant.
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change that adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] This change requires a documentation update
+
+## **Detailed Description**
+Enter the purpose here
+
+## **Attach any relevant Screenshots of Before -> After**
+Attach here
+
+## **Checklist before requesting a review**
+- [ ] I have performed a self-review of my code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] I need to delete the branch once I get the PR approved if a feature is done
+- [ ] I will include relevant pictures to better understand the PR
+Include three main components in every pull request:
+
+Ticket - link to the Jira ticket for reference
+Purpose - outline the goals the PR achieves and how
+Screenshots - Images of the changes or screenshots of the code editor for structural changes
+When possible, all developers should approve.
+
+Read the code and offer suggestions.
+Don't overly stress about addressing comments unless they're crucial or time permits.
+Merging PR
+Once all developers have approved, the author of the PR will be asked to merge it.
+Delete all merged branches.
+This simplifies the review of merged PRs for unaddressed changes later on.
+
+
+## Linting
 To lint the frontend, run the following command:
 
 ```npm run lint```
@@ -30,6 +95,10 @@ To lint the frontend, run the following command:
 To run the linter and fix all the errors, run the following command:
 
 ```npm run lint:fix```
+
+# The Final Product
+
+https://youtu.be/-VYYTWQ2Xqc?feature=shared
 
 # The Client
 
@@ -46,10 +115,6 @@ Our task within the framework of D2D was to develop a web application aimed at s
 # Timeframe
 
 September — December 2023 | 6 weeks
-
-# The Final Product
-
-https://youtu.be/-VYYTWQ2Xqc?feature=shared
 
 # Tools
 
