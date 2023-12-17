@@ -1,91 +1,69 @@
 ![396shots_so](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/209c3ad2-1e34-45d8-9ec0-fdd36b4dac15)
-
-
 # Developer Setup
 
 1. Clone this repository with `git` in whichever way you are most comfortable with
 (Make sure you will be able to push later)  
-2. Make sure that you have Node.js installed on your computer or [install it here](https://nodejs.org/en/download/)  
-3. Open up the directory/folder in Terminal, Powershell, or Command Prompt and run `npm i` to install dependencies.  
-4. Create a file named `.env` at the root of the project and insert the environment variables into it in the
-format `VARIABLE_NAME=VARIABLE_VALUE`.  
-   * A `template.env` has been provided with the keys you need to fill out or change
-5. Start the frontend with `npm start` or the backend with `nodemon server`  
+2. Open up the directory/folder in Terminal, Powershell, or Command Prompt and run `npm 
+5. Start the frontend with `npm start
    * The script should then automatically restart itself whenever changes are detected.
-
+  
 # Developer Guidelines
+
+### 1. Creating a new Branch
 To ensure you are consistently creating a new branch with the latest version of the dev branch, execute the following commands:
-### Copy the entire dev branch from the GitHub repository to a new local branch
+- Copy the entire dev branch from the GitHub repository to a new local branch
 ```git branch local-branch origin/dev```
-### Switch to the newly created local branch
+- Switch to the newly created local branch
 ```git checkout local-branch```
-Now, you can proceed to work on your task on this branch. 
-### Install npm packages
-Additionally, it's advisable to run the following command each time you create a new branch:
+.Now, you can proceed to work on your task on this branch. 
+
+- Additionally, it's advisable to run the following command each time you create a new branch:
 ```npm install```
-This ensures that your local environment is up to date with the dependencies required for your project.
+.This ensures that your local environment is up to date with the dependencies required for your project.
 
-### Branch Naming
-<aside>
-💡 Ensure frequent commits (Suggestion - after finishing for the day or every hour).
-</aside>
-Branch naming is **crucial! Always adhere to kebab case. Every branch should be named as [TICKET NUMBER]-descriptive-title. For instance, if the Jira task is "D2D-8," name it as [8]-descriptive-title.
+### Naming the branch
+Ensure frequent commits (Suggestion - after finishing for the day or every hour).
 
-Pull Requests
-Follow standard procedures when approaching pull requests.
+- As a rule, adhere to kebab case when naming branches, using the **[TICKET NUMBER]-descriptive-title** format. For instance, if the Jira task is "D2D-8," the branch should be named as [8]-descriptive-title.
 
-Use a pull request template, which will be created and pushed soon.
+### Creating Pull requests
+Use the provided pull request template to follow standard procedures when approaching pull requests.
+    
+    ## **Jira Issue ticket number and link**## **Type of change**
+    
+    Please delete options that are not relevant.
+    
+    - [ ] Bug fix (non-breaking change which fixes an issue)
+    - [ ] New feature (non-breaking change that adds functionality)
+    - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+    - [ ] This change requires a documentation update
+    
+    ## **Detailed Description**
+    Enter the purpose here
+    
+    ## **Attach any relevant Screenshots of Before -> After**
+    Attach here
+    
+    ## **Checklist before requesting a review**- [ ] I have performed a self-review of my code
+    - [ ] I have commented my code, particularly in hard-to-understand areas
+    - [ ] My changes generate no new warnings
+    - [ ] I have added tests that prove my fix is effective or that my feature works
+    - [ ] I need to delete the branch once I get the PR approved if a feature is done
+    - [ ] I will include relevant pictures to better understand the PR
+    
+    
+- Include three main components in every pull request:
+    - **Ticket** - link to the Jira ticket for reference
+    - **Purpose** - outline the goals the PR achieves and how
+    - **Screenshots** - Images of the changes or screenshots of the code editor for structural changes
 
-
-## Creating a New Branch from Dev
-
-To ensure you always work with the latest version of the dev branch, follow these commands:
-
-```bash
-# Copy the entire dev branch from the GitHub repository to a new local branch
-git branch local-branch origin/dev
-
-# Switch to the newly created local branch
-git checkout local-branch
-
-## **Jira Issue ticket number and link**
-
-## **Type of change**
-
-Please delete options that are not relevant.
-
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change that adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
-
-## **Detailed Description**
-Enter the purpose here
-
-## **Attach any relevant Screenshots of Before -> After**
-Attach here
-
-## **Checklist before requesting a review**
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] I need to delete the branch once I get the PR approved if a feature is done
-- [ ] I will include relevant pictures to better understand the PR
-Include three main components in every pull request:
-
-Ticket - link to the Jira ticket for reference
-Purpose - outline the goals the PR achieves and how
-Screenshots - Images of the changes or screenshots of the code editor for structural changes
-When possible, all developers should approve.
-
-Read the code and offer suggestions.
-Don't overly stress about addressing comments unless they're crucial or time permits.
-Merging PR
-Once all developers have approved, the author of the PR will be asked to merge it.
-Delete all merged branches.
-This simplifies the review of merged PRs for unaddressed changes later on.
-
+### Approving Pull Requests
+- When possible, all developers should approve.
+    - Read the code and offer suggestions.
+    - Don't overly stress about addressing comments unless they're crucial or time permits.
+- Once all developers have approved, the author of the PR will be asked to merge it.
+- **Delete all merged branches.**
+    - This simplifies the review of merged PRs for unaddressed changes later on.
 
 ## Linting
 To lint the frontend, run the following command:
