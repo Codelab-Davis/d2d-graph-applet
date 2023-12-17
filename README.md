@@ -76,19 +76,19 @@ To run the linter and fix all the errors, run the following command:
 
 # The Final Product
 
-https://youtu.be/-VYYTWQ2Xqc?feature=shared
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-VYYTWQ2Xqc?si=yrXDng3kPFAZtaZb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # The Client
 
 The Siegel Lab, led by Dr. Justin B. Siegel at the Genome Center, is spearheading the Design 2 Data (D2D) project. This initiative focuses on acquiring precise kinetic and thermal stability data for previously unexplored mutant enzymes.
+
+![355shots_so-removebg-preview](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/46c2dcd6-8abb-4148-bffe-66983376c44a)
 
 The central goal of this research is to unravel the intricate relationship between protein structure and function. Ultimately, the aim is to harness this understanding to design proteins with advantageous properties.
 
 # Our Task
 
 Our task within the framework of D2D was to develop a web application aimed at streamlining the calculation of enzyme reaction rates and generating graphs from student-generated data. Our focus was on efficiently identifying the steepest slope in absorbance data collected at various timepoints that was collected using a spectrophotometer.
-
-![355shots_so-removebg-preview](https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/46c2dcd6-8abb-4148-bffe-66983376c44a)
 
 *The over-arching objective of this project was to provide a user-friendly solution, enabling students from all D2D institutions to effortlessly gather high-quality data on enzyme functionality.*
 
