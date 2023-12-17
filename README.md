@@ -200,14 +200,14 @@ We designed the website to be as intuitive as possible, especially for new users
 
 We started with getting React Joyride integrated with our app, which required some thought in terms of managing states relevant to the tour setup and passing it to the right components on the page. Then, we setup the steps of the tour, which highlights the workflow of the app. It starts with the user input for the Google Sheets URL, then after displaying some useful information about finding the correct link to upload, the tour highlights the rest of the app including the table, graphs, and how the user can interact with these and download them if desired.
 
-# Design System
+# Designs
+<img width="2151" alt="Group 1000000862 (1)" src="https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/961e574b-9f5b-4762-a278-975dcee4ee4c">
 
 To maintain a consistent brand identity with D2D, We took color inspiration from their website that utilized different shades of teals and oranges. We used teal for the majority of the design and orange draw attention to buttons and interactions, ensuring the colors met the WCAG accessibility standards. We also utilized components for the tables and graphs for scalability and for the interactive buttons and icons to keep the design minimalistic but intuitive for the user.
 
 We chose Manrope as our primary font because of it’s simplicity and readability that makes it ideal for our data visualizations and text. Its modern aesthetic also further enhances the overall design.
-<img width="2151" alt="Group 1000000862 (1)" src="https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/961e574b-9f5b-4762-a278-975dcee4ee4c">
 
-Click to Know more about the journey - 
+Click to Know more about the journey - https://medium.com/@mohnish.gopi/d2d-enzyme-rate-calculator-c1cc87f268f4
 
 # Challenges
 
