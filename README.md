@@ -91,7 +91,10 @@ Use the provided pull request template to follow standard procedures when approa
 - **Delete all merged branches.**
     - This simplifies the review of merged PRs for unaddressed changes later on.
 
-### 5. Linting
+### 5. Deployment
+The deployment is presently on CodeLab Davis Vercel. Subsequent pushes will automatically update this link, allowing you to view the latest changes.
+**https://d2d-graph-applet-codelabdavis-projects.vercel.app/**
+### 6. Linting
 To lint the frontend, run the following command:
 
 ```npm run lint```
