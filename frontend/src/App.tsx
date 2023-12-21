@@ -13,11 +13,11 @@ function App() {
     {
       target: "#url-input",
       content: (
-        <div className="flex flex-col items-center">
+        <div>
           <div className="flex justify-center">
             <img className="mb-[3%] w-[35%]" src='/assets/urlInstruction1.png'></img>
           </div>
-          <p className="dark:text-white justify-center">Open your Google sheet and click Share.</p>
+          <p>Open your Google sheet and click Share.</p>
         </div>
       ),
       placement: "top",
@@ -36,9 +36,8 @@ function App() {
       content: (
         <div>
           <div className="flex justify-center">
-            <img className="w-[35%]" src='/assets/urlInstruction2.png'></img>
+            <img className="mb-[3%] w-[35%]" src='/assets/urlInstruction2.png'></img>
           </div>
-          <br/>
           <p>Click the copy link button/link icon, then paste the link here.</p>
         </div>
       ),
@@ -49,7 +48,8 @@ function App() {
     },
     {
       target: "#calculate-button",
-      content: (<p>After pasting the link, click next, then click calculate!</p>),
+      content: "After pasting the link, click next, then click calculate!",
+      placement: "top",
       disableScrolling: true,
       spotlightClicks: false,
       spotlightPadding: 8
@@ -66,7 +66,7 @@ function App() {
     },
     {
       target: "#export-button",
-      content: "Use this button to download a csv file of the table data",
+      content: "Use this button to download a csv file of the table data.",
       disableScrolling: true,
       // placement: "top"
     },
@@ -131,18 +131,22 @@ function App() {
 
   // Need to set up background, text, etc to be normal
   function CustomTooltip({
+    closeProps,
     index,
     primaryProps,
     step,
     tooltipProps
   }: TooltipRenderProps) {
     return (
-      <div {...tooltipProps} className='flex flex-col justify-center max-w-350px bg-white dark:bg-grays-700 p-[10px] rounded-[10px]'>
-        <div className='dark:text-white text-center'>
+      <div {...tooltipProps} className='flex flex-col justify-center max-w-[350px] bg-white dark:bg-grays-700 p-[10px] rounded-[10px]'>
+        <div className='flex flex-col items-end'>
+          <button {...closeProps}><img src="/assets/closeButton.svg"/></button>
+        </div>
+        <div className='dark:text-white text-center text-[16px]'>
           {step.content}
         </div>
         <div className='flex flex-col items-end'>
-          <button {...primaryProps} className="mt-[3%] px-[6px] py-[4px] bg-secondary-600 hover:bg-secondary-700 rounded-[5px] text-base font-manrope text-white">
+          <button {...primaryProps} className="mt-[3%] px-[6px] py-[4px] bg-secondary-600 hover:bg-secondary-700 rounded-[5px] text-[16px] text-white">
             {index === 7
               ? "Exit Tour"
               : "Next"
