@@ -163,7 +163,7 @@ function LandingPage(
                   <input id="url-input" onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>
                   <button id="calculate-button" onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
-                {isValidSheet ? <p></p> : <p className="mb-[1%] text-white text-base">Invalid Sheet URL. Please try again</p>}
+                {isValidSheet ? <p></p> : <p className="self-center mb-[1%] text-red-1 text-base bg-grays-300 mt-2 w-fit p-1 px-4 rounded-xl opacity-90">Invalid Sheet URL. Please try again</p>}
               </div>
                 <button className="self-end" onClick={helpButtonClicked}>
                   <div className="bg-[url('/assets/helpButton.svg')] hover:bg-[url('/assets/helpButtonHover.svg')] mb-[18px] mr-[18px] h-[49px] w-[49px]"></div>
