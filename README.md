@@ -228,6 +228,8 @@ We started with getting React Joyride integrated with our app, which required so
 
 To maintain a consistent brand identity with D2D, We took color inspiration from their website that utilized different shades of teals and oranges. We used teal for the majority of the design and orange draw attention to buttons and interactions, ensuring the colors met the WCAG accessibility standards. We also utilized components for the tables and graphs for scalability and for the interactive buttons and icons to keep the design minimalistic but intuitive for the user. We chose Manrope as our primary font because of it’s simplicity and readability that makes it ideal for our data visualizations and text. Its modern aesthetic also further enhances the overall design.
 
+***Figma File*** - https://www.figma.com/file/tBBgkQzTQYDTGsgjBrZuhc/D2D?type=design&node-id=7%3A3&mode=design&t=kfq1UMj8XnPsY9VT-1
+
 ***Click to Know more about the journey*** - https://medium.com/@mohnish.gopi/d2d-enzyme-rate-calculator-c1cc87f268f4
 
 # Challenges
