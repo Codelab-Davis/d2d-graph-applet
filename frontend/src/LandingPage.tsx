@@ -11,7 +11,6 @@ function getData(data:[]){
       for (let letter = 0; letter < letters.length; letter ++) {
         for (let number = 0; number < numbers.length; number ++) {
           let substrate = letters[letter] + numbers[number];
-          // console.log(data[dataIndex][substrate]);
 
           if (dataIndex == 0) {
             substrateData.set(substrate, []);
@@ -109,7 +108,6 @@ function LandingPage(
       .then(response => response.json())
       .then(data => {
         getData(data.data);
-        console.log(substrateData);
         props.setSubstrateData(substrateData);
         props.setRateData(getRates());
         props.setVisibility(true);

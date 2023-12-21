@@ -106,7 +106,6 @@ function App() {
 
   const handleCallback = (data: CallBackProps) => {
     const { action, index, /*lifecycle,*/ type, status } = data;
-    console.log(data);
 
     if (action === "reset" || action === "close" || status === "finished") {
       setJoyrideState(prevState => ({
