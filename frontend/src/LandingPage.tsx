@@ -99,28 +99,42 @@ function LandingPage(
   }) {
     
     const [sheetId, setSheetId] = useState("");
+    const [isValidSheet, setIsValidSheet] = useState(true);
     // const [sheetURL, setSheetURL] = useState("");
 
     const click = ()=>{
-    fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
-      method: "GET"
-    })
-      .then(response => response.json())
-      .then(data => {
-        getData(data.data);
-        props.setSubstrateData(substrateData);
-        props.setRateData(getRates());
-        props.setVisibility(true);
-        if (props.joyrideState.tourActive) {
-          props.setJoyrideState(prevState => ({
-            ...prevState,
-            run: true,
-            stepIndex: 3
-          }))
-        }
-      })
-      .catch(error => console.error(error))
-    };
+      if(typeof sheetId === "undefined") {
+        setIsValidSheet(false);
+      }
+      else {
+        setIsValidSheet(true);
+        fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
+          method: "GET"
+        })
+        .then(response => response.json())
+        .then(data => {
+          if(Object.keys(data.data).length === 0) {
+            setIsValidSheet(false);
+            throw new Error('empty sheet');
+          }
+          getData(data.data);
+          props.setSubstrateData(substrateData);
+          props.setRateData(getRates());
+          props.setVisibility(true);
+          if (props.joyrideState.tourActive) {
+            props.setJoyrideState(prevState => ({
+              ...prevState,
+              run: true,
+              stepIndex: 3
+            }))
+          }
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      };
+    }
+    
 
     const change = (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
@@ -149,6 +163,7 @@ function LandingPage(
                   <input id="url-input" onChange={change} className="grow pl-[20px] font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>
                   <button id="calculate-button" onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
+                {isValidSheet ? <p></p> : <p className="mb-[1%] text-white text-base">Invalid Sheet URL. Please try again</p>}
               </div>
                 <button className="self-end" onClick={helpButtonClicked}>
                   <div className="bg-[url('/assets/helpButton.svg')] hover:bg-[url('/assets/helpButtonHover.svg')] mb-[18px] mr-[18px] h-[49px] w-[49px]"></div>

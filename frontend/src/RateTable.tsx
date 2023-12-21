@@ -90,12 +90,12 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                                             isFlagged.flaggedStates[rowID][rowDataID] ? 
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged">
                                                     <div>                                                    
-                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
+                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2).toString() : val.toString()}
                                                     </div>
                                                 </button>: 
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] hover:bg-flagged">
                                                     <div>                                                    
-                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
+                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2).toString() : val.toString()}
                                                     </div>
                                                 </button>
                                         }
