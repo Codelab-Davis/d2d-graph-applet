@@ -6,19 +6,18 @@ import RateTable from './RateTable';
 import GraphPage from './GraphPage';
 import Footer from './Footer';
 import { JoyrideState } from './Types';
-import Joyride, { Step, CallBackProps } from 'react-joyride';
+import Joyride, { Step, CallBackProps, TooltipRenderProps } from 'react-joyride';
 
 function App() {
   const steps: Step[] = [
     {
       target: "#url-input",
       content: (
-        <div>
+        <div className="flex flex-col items-center">
           <div className="flex justify-center">
-            <img className="w-[35%]" src='/assets/urlInstruction1.png'></img>
+            <img className="mb-[3%] w-[35%]" src='/assets/urlInstruction1.png'></img>
           </div>
-          <br/>
-          <p>Open your Google sheet and click Share.</p>
+          <p className="dark:text-white justify-center">Open your Google sheet and click Share.</p>
         </div>
       ),
       placement: "top",
@@ -50,7 +49,7 @@ function App() {
     },
     {
       target: "#calculate-button",
-      content: "After pasting the link, click next, then click calculate!",
+      content: (<p>After pasting the link, click next, then click calculate!</p>),
       disableScrolling: true,
       spotlightClicks: false,
       spotlightPadding: 8
@@ -130,6 +129,31 @@ function App() {
     }
   }
 
+  // Need to set up background, text, etc to be normal
+  function CustomTooltip({
+    index,
+    primaryProps,
+    step,
+    tooltipProps
+  }: TooltipRenderProps) {
+    return (
+      <div {...tooltipProps} className='flex flex-col justify-center max-w-350px bg-white dark:bg-grays-700 p-[10px] rounded-[10px]'>
+        <div className='dark:text-white text-center'>
+          {step.content}
+        </div>
+        <div className='flex flex-col items-end'>
+          <button {...primaryProps} className="mt-[3%] px-[6px] py-[4px] bg-secondary-600 hover:bg-secondary-700 rounded-[5px] text-base font-manrope text-white">
+            {index === 7
+              ? "Exit Tour"
+              : "Next"
+            }
+          </button>
+
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="bg-[#fdfdfd] dark:bg-grays-700">
       <Joyride
@@ -147,9 +171,11 @@ function App() {
         styles={{
           options: {
             primaryColor: "#d66c0f",
-            textColor: "#252525"
+            textColor: "#252525",
+            arrowColor: (window.matchMedia("(prefers-color-scheme:dark)").matches ? "#2f2f2f" : "#ffffff")
           }
         }}
+        tooltipComponent={CustomTooltip}
       />
 
       <LandingPage
