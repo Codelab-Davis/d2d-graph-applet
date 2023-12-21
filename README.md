@@ -223,6 +223,9 @@ We designed the website to be as intuitive as possible, especially for new users
 
 We started with getting React Joyride integrated with our app, which required some thought in terms of managing states relevant to the tour setup and passing it to the right components on the page. Then, we setup the steps of the tour, which highlights the workflow of the app. It starts with the user input for the Google Sheets URL, then after displaying some useful information about finding the correct link to upload, the tour highlights the rest of the app including the table, graphs, and how the user can interact with these and download them if desired.
 
+[Operating_Manual.pdf](https://github.com/Codelab-Davis/d2d-graph-applet/files/13743957/Operating_Manual.pdf)
+
+
 # Designs
 <img width="2151" alt="Group 1000000862 (1)" src="https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/961e574b-9f5b-4762-a278-975dcee4ee4c">
 
