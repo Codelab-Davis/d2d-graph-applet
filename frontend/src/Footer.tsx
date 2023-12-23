@@ -10,8 +10,8 @@ const Footer = () => {
                 </a>
                 <span className="self-center ml-1 text-2xl whitespace-nowrap dark:text-white font-semibold">Enzyme Rate Calculator</span>
               </div>
-              <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
-                <div className="flex-col flex mt-4 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-end">
+              <div className="flex-col flex mt-2 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-4 justify-end">
+                <div className="flex-col flex mt-2 sm:justify-center sm:mt-0 items-center space-y-4 md:space-y-0 md:flex-row md:space-x-3 justify-end">
                 <a href="/public/Operating_Manual.pdf" target = "_blank" className="flex items-center">
                   <button type="button" className="text-white bg-secondary-600 hover:bg-secondary-700 font-semibold rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-secondary-600 dark:hover:bg-secondary-600 dark:focus:secondary-600">DOCUMENTATION</button>
                   </a>
@@ -31,7 +31,8 @@ const Footer = () => {
                 <span className="text-sm text-gray-500 sm:text-center dark:text-white">
                   by
                 </span>
-                <div className="w-[92px] h-[17px] bg-contain bg-no-repeat bg-[url('/assets/codelabLogo.svg')] dark:bg-[url('/assets/codelabLogoWhite.svg')] dark:h-[24px] dark:bg-cover"></div>
+                <a href="https://www.codelabdavis.com/">
+                <div className="w-[92px] h-[17px] bg-contain bg-no-repeat bg-[url('/assets/codelabLogo.svg')] dark:bg-[url('/assets/codelabLogoWhite.svg')] dark:h-[24px] dark:bg-cover"></div></a>
               </div>
               <div className="flex gap-3 lg:gap-[40px] mt-4 sm:justify-center sm:mt-0">
                 <a href="https://d2d.ucdavis.edu/contact-us" target="_blank" className="hover:underline text-grays-700 dark:text-[#f2f2f2]" >Contact Us</a>
