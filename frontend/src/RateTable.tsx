@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData: (string | number)[][], visible: Boolean }) {
-    
+
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     let objUrl;
@@ -32,7 +32,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
         const[isFlagged, setIsFlagged] = useState({
             flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))});
         console.log(isFlagged);
-        
+
         function onCellClick(rowID:number, rowDataID:number) {
             console.log("clicked");
 
@@ -60,7 +60,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                     <div className="flex gap-6">
                         <h3 className="dark:text-[#f2f2f2]">ENZYME REACTION RATES</h3>
                         <div className="group relative w-max">
-                            <button className="mt-[8px]"><img id="rate-table-info" src="/assets/grayInfoIcon.svg"/></button>
+                            <button id="rate-table-info" className="mt-[8px]"><img src="/assets/grayInfoIcon.svg"/></button>
                             <span className="pointer-events-none absolute w-max -top-[100px] md:-top-[80px] -left-[500%] md:left-[150%] rounded-[15px] bg-white dark:bg-grays-500 px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] dark:shadow-[0_7px_15px_0_rgba(255,255,255,0.10)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
@@ -91,18 +91,18 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
                                     <td className="border bg-white hover:bg-grays-300 dark:hover:bg-grays-500 border-grays-300 dark:bg-[#636363] dark:border-[#8a8a8a] h-12 border-t-1 max-[800px]:text-xxs max-[1400px]:text-xs max-[1623px]:text-sm dark:text-[#f2f2f2]" key={rowDataID}>
-                                        {(rowDataID == 0) ? 
+                                        {(rowDataID == 0) ?
                                             <div className="flex justify-center items-center h-full w-full">
                                                 {val}
                                             </div> :
-                                            isFlagged.flaggedStates[rowID][rowDataID] ? 
+                                            isFlagged.flaggedStates[rowID][rowDataID] ?
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged">
-                                                    <div>                                                    
+                                                    <div>
                                                         {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
                                                     </div>
-                                                </button>: 
+                                                </button>:
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] hover:bg-flagged">
-                                                    <div>                                                    
+                                                    <div>
                                                         {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
                                                     </div>
                                                 </button>

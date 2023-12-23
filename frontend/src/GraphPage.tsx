@@ -31,7 +31,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                     <div className="flex gap-6">
                         <h3 className="dark:text-[#f2f2f2]">RATE VISUALIZATIONS</h3>
                         <div className="group relative w-max">
-                            <button className="mt-[8px]"><img id="graph-table-info" src="/assets/grayInfoIcon.svg"/></button>
+                            <button id="graph-table-info" className="mt-[8px]"><img src="/assets/grayInfoIcon.svg"/></button>
                             <span className="pointer-events-none absolute w-max -top-[75px] md:-top-[60px] -left-[500%] md:left-[150%] rounded-[15px] bg-white dark:bg-grays-500 px-[15px] py-[20px]
                             text-sm font-normal text-black opacity-0 shadow-[0_7px_15px_0_rgba(0,0,0,0.08)] dark:shadow-[0_7px_15px_0_rgba(255,255,255,0.10)] transition-opacity group-hover:opacity-100">
                                 <div className="flex flex-col items-start">
