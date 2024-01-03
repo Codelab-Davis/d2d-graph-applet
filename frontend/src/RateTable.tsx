@@ -6,6 +6,9 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
 
     let objUrl;
 
+    /*
+    * makeCSVData creates a CSV file from the data stored in rateData props
+    */
     // https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
     function makeCSVData() {
         const csvData = [];
@@ -26,6 +29,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
 
     makeCSVData()
 
+    // only show table when the table is set to visible
     if(props.visible) {
         const[isFlagged, setIsFlagged] = useState({
             flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))})

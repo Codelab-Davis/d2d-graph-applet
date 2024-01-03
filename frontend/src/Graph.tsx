@@ -42,8 +42,11 @@ interface chartInterface {
     substrates:string[],
     title:string,
 }
+
+// set up graph component
 function Graph(props:chartInterface) {
 
+    // set up options for chart js
     const options = {
         responsive: true,
         maintainAspectRatio: false,
@@ -82,9 +85,10 @@ function Graph(props:chartInterface) {
     const labels = [];
     const colors = ['rgba(247, 159, 96, 1)', 'rgba(106, 192, 192, 1)', 'rgba(66, 106, 207, 1)'];
 
+    // set up each data set with correct substrate data, labels, and colors for lines
     for (let i = 0; i < props.substrates.length; i++){
         dataSets.push({
-            label: `data set ${props.substrates[i]}`,
+            label: `Trial ${props.substrates[i]}`,
             data: props.substrateData.get(props.substrates[i]),
             borderColor: colors[i],
             pointBorderColor: 'rgba(0,0,0,0)',
