@@ -13,7 +13,6 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
         for (let i = 0; i < props.rateData.length; i++) {
             csvData.push(props.rateData[i])
         }
-        console.log(csvData)
 
         let csvContent = ''
 
@@ -22,7 +21,6 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
         })
 
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8,' })
-        console.log(blob)
         objUrl = URL.createObjectURL(blob)
     }
 
@@ -30,30 +28,25 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
 
     if(props.visible) {
         const[isFlagged, setIsFlagged] = useState({
-            flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))});
-        console.log(isFlagged);
+            flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))})
+        
 
         function onCellClick(rowID:number, rowDataID:number) {
-            console.log("clicked");
 
             setIsFlagged(({ flaggedStates }) => ({ flaggedStates:
                 flaggedStates.map((row, i) => {
                     let newRow = row.map((cell:boolean, j:number) => {
                         if(i == rowID && j == rowDataID) {
-                            console.log("cell");
-                            console.log(cell);
                             return !cell
                         }
                         else {
                             return cell
                         }
                     });
-                    console.log(newRow);
                     return newRow;
                 })
             }));
         }
-        console.log(props.rateData[0].length);
         return (
             <div ref={props.rateTableRef} className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
@@ -97,13 +90,14 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                                             </div> :
                                             isFlagged.flaggedStates[rowID][rowDataID] ?
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged">
-                                                    <div>
-                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
+                                                    <div>                                                    
+                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2).toString() : val.toString()}
+
                                                     </div>
                                                 </button>:
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] hover:bg-flagged">
-                                                    <div>
-                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2) : val}
+                                                    <div>                                                    
+                                                        {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2).toString() : val.toString()}
                                                     </div>
                                                 </button>
                                         }
