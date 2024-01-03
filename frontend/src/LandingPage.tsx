@@ -97,7 +97,7 @@ function LandingPage(
     joyrideState: JoyrideState,
     setJoyrideState: React.Dispatch<React.SetStateAction<JoyrideState>>
   }) {
-    
+
     const [sheetId, setSheetId] = useState("");
     const [isValidSheet, setIsValidSheet] = useState(true);
     // const [sheetURL, setSheetURL] = useState("");
@@ -122,6 +122,8 @@ function LandingPage(
           props.setRateData(getRates());
           props.setVisibility(true);
           if (props.joyrideState.tourActive) {
+            // Progress through walkthrough after pause
+            // Note: hardcoded stepIndex based on steps in Walkthrough.tsx
             props.setJoyrideState(prevState => ({
               ...prevState,
               run: true,
@@ -134,13 +136,14 @@ function LandingPage(
         })
       };
     }
-    
+
 
     const change = (event: React.ChangeEvent<HTMLInputElement>) => {
         // parse url for sheetId
         setSheetId(event.target.value.split('/')[5]);
     }
 
+    // Start walkthrough
     const helpButtonClicked = () => {
       props.setJoyrideState(prevState => ({
         ...prevState,
