@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData: (string | number)[][], visible: Boolean }) {
+function RateTable(props: { rateTableRef: React.MutableRefObject<null>, rateData: (string | number)[][], visible: Boolean }) {
 
     const headers = ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-    let objUrl;
+    const [objUrl, setObjUrl] = useState(String);
+    // Initializing state to 2D array of size 8x12 (general size of table, but can be adjusted)
+    const[isFlagged, setIsFlagged] = useState({
+        flaggedStates: Array(8).fill(Array(12).fill(false))});
 
     /*
-    * makeCSVData creates a CSV file from the data stored in rateData props
+    * Creates a CSV file from the data stored in rateData props
+    * Referenced https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
     */
-    // https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
     function makeCSVData() {
         const csvData = [];
         csvData.push(headers);
@@ -24,33 +27,41 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
         })
 
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8,' })
-        objUrl = URL.createObjectURL(blob)
+        setObjUrl(URL.createObjectURL(blob))
     }
 
-    makeCSVData()
+    // When table is ready to be visible, or when rate data changes,
+    // resets the isFlagged state for table and generates a new CSV file
+    useEffect(() => {
+        if (props.visible) {
+            // Ready to initialize to the appropriate lengths
+            setIsFlagged({
+                flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))
+            });
 
-    // only show table when the table is set to visible
-    if(props.visible) {
-        const[isFlagged, setIsFlagged] = useState({
-            flaggedStates: Array(props.rateData.length).fill(Array(props.rateData[0].length).fill(false))})
-        
-
-        function onCellClick(rowID:number, rowDataID:number) {
-
-            setIsFlagged(({ flaggedStates }) => ({ flaggedStates:
-                flaggedStates.map((row, i) => {
-                    let newRow = row.map((cell:boolean, j:number) => {
-                        if(i == rowID && j == rowDataID) {
-                            return !cell
-                        }
-                        else {
-                            return cell
-                        }
-                    });
-                    return newRow;
-                })
-            }));
+            makeCSVData();
         }
+    }, [props.visible, props.rateData])
+
+
+    // Handles flagging of individual cells in the table
+    function onCellClick(rowID:number, rowDataID:number) {
+        setIsFlagged(({ flaggedStates }) => ({ flaggedStates:
+            flaggedStates.map((row, i) => {
+                let newRow = row.map((cell:boolean, j:number) => {
+                    if(i == rowID && j == rowDataID) {
+                        return !cell
+                    }
+                    else {
+                        return cell
+                    }
+                });
+                return newRow;
+            })
+        }));
+    }
+    // Only show table when set to visible
+    if (props.visible) {
         return (
             <div ref={props.rateTableRef} className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">
                 <div className="flex justify-between mb-6">
@@ -94,13 +105,13 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
                                             </div> :
                                             isFlagged.flaggedStates[rowID][rowDataID] ?
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] bg-flagged">
-                                                    <div>                                                    
+                                                    <div>
                                                         {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2).toString() : val.toString()}
 
                                                     </div>
                                                 </button>:
                                                 <button onClick={() => onCellClick(rowID, rowDataID)} className="flex justify-start items-center h-full w-full pl-[10px] hover:bg-flagged">
-                                                    <div>                                                    
+                                                    <div>
                                                         {(typeof val !== 'string' && val < 0.001) ? val.toExponential(2).toString() : val.toString()}
                                                     </div>
                                                 </button>
@@ -116,6 +127,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>,rateData:
 
         )
     }
+
     return (
         <div ref={props.rateTableRef}></div>
     )
