@@ -142,7 +142,6 @@ function Walkthrough(props: { joyrideState: JoyrideState, setJoyrideState: React
 
   // Initializes joyride state on load
   useEffect(() => {
-    console.log("I should only run once!");
     props.setJoyrideState(prevState => ({
     ...prevState,
     steps: steps
