@@ -9,8 +9,10 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>, rateData
     const[isFlagged, setIsFlagged] = useState({
         flaggedStates: Array(8).fill(Array(12).fill(false))});
 
-    // Generates a CSV file of the reaction rates for download
-    // https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
+    /*
+    * Creates a CSV file from the data stored in rateData props
+    * Referenced https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
+    */
     function makeCSVData() {
         const csvData = [];
         csvData.push(headers);
@@ -41,6 +43,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>, rateData
         }
     }, [props.visible, props.rateData])
 
+
     // Handles flagging of individual cells in the table
     function onCellClick(rowID:number, rowDataID:number) {
         setIsFlagged(({ flaggedStates }) => ({ flaggedStates:
@@ -57,7 +60,7 @@ function RateTable(props: { rateTableRef: React.MutableRefObject<null>, rateData
             })
         }));
     }
-
+    // Only show table when set to visible
     if (props.visible) {
         return (
             <div ref={props.rateTableRef} className="flex flex-col mt-[150px] mx-[5%] lg:mx-[10%] w-[90%] lg:w-[80%]">

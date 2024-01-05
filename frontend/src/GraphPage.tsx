@@ -8,6 +8,8 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
     let currGroup = [];
     let currLetter = '';
 
+    // groups substrates in sets of 3 for each substrate group to be used for graph component
+    // ie for substrate A, it groups it in A1-3, A4-6, A7-9, A10-12
     for(let i = 0; i < substrateDataNames.length; i+=3) {
         if(substrateDataNames[i][0] != currLetter) {
             if(currGroup.length != 0) {
@@ -22,8 +24,10 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
         }
         const group = [substrateDataNames[i], substrateDataNames[i+1], substrateDataNames[i+2]];
         currGroup.push(group);
+        console.log(currGroup)
     }
     substrateDataGroups.push(currGroup);
+    console.log(substrateDataGroups)
 
     if (props.visible){
         return (

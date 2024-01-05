@@ -3,6 +3,10 @@ import { JoyrideState } from './Types';
 
 const substrateData = new Map<string, number[]>();
 
+/*
+* getData takes the input of the data from the sheets parser API request
+* populates the substrateData map with the data from the spreadsheet
+*/
 function getData(data:[]){
     const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -21,28 +25,37 @@ function getData(data:[]){
     }
   }
 
-  function maxSlope(substrateData:Map<string, number[]>, substrate:string){
-    const window:number[][] = [];
-    let data:number[] = substrateData.get(substrate)!;
-    let maxSlope = -Infinity
-    let tempSlope = -Infinity
-    for (let i = 0; i < data.length; i ++){
-      if (window.length < 3) {
-        window.push([i, data[i]]);
-      }
-      else{
-        tempSlope = findSlope(window);
-        maxSlope = Math.max(maxSlope, tempSlope);
-        window.shift();
-        window.push([i, data[i]]);
-      }
+/*
+* maxSlope calculates the maximum rate of reaction of a given trial
+* @param substrateData:Map<string, number[]> stores the data
+* @param substrate is the specific trial
+*/
+function maxSlope(substrateData:Map<string, number[]>, substrate:string){
+  const window:number[][] = [];
+  let data:number[] = substrateData.get(substrate)!;
+  let maxSlope = -Infinity
+  let tempSlope = -Infinity
+  for (let i = 0; i < data.length; i ++){
+    if (window.length < 3) {
+      window.push([i, data[i]]);
     }
-
-    tempSlope = findSlope(window);
-    maxSlope = Math.max(maxSlope, tempSlope);
-    return parseFloat(maxSlope.toPrecision(4));
+    else{
+      tempSlope = findSlope(window);
+      maxSlope = Math.max(maxSlope, tempSlope);
+      window.shift();
+      window.push([i, data[i]]);
+    }
   }
 
+  tempSlope = findSlope(window);
+  maxSlope = Math.max(maxSlope, tempSlope);
+  return parseFloat(maxSlope.toPrecision(4));
+}
+
+/*
+* findSlope calculates the rate of reaction of a subset of data points of a trial
+* @param points is an array containing data points
+*/
 function findSlope(points:number[][]) {
     let size = points.length;
     let sumx = 0;
@@ -63,6 +76,10 @@ function findSlope(points:number[][]) {
     return slope;
 }
 
+/*
+* getRates calculates the rates for all trials
+* data comes from the global substrateData prop
+*/
 function getRates() {
   const substrateTypes = Array.from(substrateData.keys());
     let currSubstrate:string = "";
@@ -101,8 +118,12 @@ function LandingPage(
     const [sheetId, setSheetId] = useState("");
     const [isValidSheet, setIsValidSheet] = useState(true);
     // const [sheetURL, setSheetURL] = useState("");
-
+    /*
+    * click performs the API call to get the data from the google sheets
+    * after getting the data, it also performs calculations on it to get the rates
+    */
     const click = ()=>{
+      // first checking to see if sheet is valid
       if(typeof sheetId === "undefined") {
         setIsValidSheet(false);
       }
@@ -112,6 +133,7 @@ function LandingPage(
           method: "GET"
         })
         .then(response => response.json())
+        // check if data is empty (ie empty sheet was given)
         .then(data => {
           if(Object.keys(data.data).length === 0) {
             setIsValidSheet(false);
