@@ -8,6 +8,8 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
     let currGroup = [];
     let currLetter = '';
 
+    // groups substrates in sets of 3 for each substrate group to be used for graph component
+    // ie for substrate A, it groups it in A1-3, A4-6, A7-9, A10-12
     for(let i = 0; i < substrateDataNames.length; i+=3) {
         if(substrateDataNames[i][0] != currLetter) {
             if(currGroup.length != 0) {
@@ -22,7 +24,10 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
         }
         const group = [substrateDataNames[i], substrateDataNames[i+1], substrateDataNames[i+2]];
         currGroup.push(group);
+        console.log(currGroup)
     }
+    substrateDataGroups.push(currGroup);
+    console.log(substrateDataGroups)
 
     if (props.visible){
         return (
@@ -57,7 +62,7 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
                         {substrateDataGroups.map((rowContent, rowID) => (
                             <tr key={rowID}>
                                 {rowContent.map((val, rowDataID) => (
-                                    <td className="border border-grays-300 w-[15%] border-t-0 border-r-0 text-sm" key={rowDataID}>
+                                    <td className="border border-grays-300 w-[15%] border-t-0 bg-white hover:bg-grays-300 dark:hover:bg-grays-500  dark:bg-[#636363] dark:border-[#8a8a8a]" key={rowDataID}>
                                         {
                                             typeof val == 'string'? <div className="grid place-items-center h-full w-full"><p>{val}</p></div>
                                             : <div className="relative w-[98%]"><Graph substrateData={props.substrateData} substrates={val} title={`${val}`}></Graph></div>
