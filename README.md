@@ -96,7 +96,6 @@ The deployment is presently on CodeLab Davis Vercel. Subsequent pushes will auto
 **https://d2d-graph-applet-codelabdavis-projects.vercel.app/**
 
 # The Final Product
-
 https://github.com/Codelab-Davis/d2d-graph-applet/assets/81405395/b6949863-c630-4140-86d1-3435475ab67e
 
 ### Check it out
