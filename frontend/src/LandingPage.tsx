@@ -135,7 +135,7 @@ function LandingPage(
         // fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
         //   method: "GET"
         // })
-        fetch(`https://d2d-graph-applet.vercel.app/api/sheet?sheetId=${sheetId}`, {
+        fetch(`https://d2d-graph-applet-dev.vercel.app/api/sheet?sheetId=${sheetId}`, {
           method: "GET"
         })
         .then(response => response.json())
