@@ -84,7 +84,6 @@ function Walkthrough(props: { joyrideState: JoyrideState, setJoyrideState: React
   // Note: step indices are hardcoded based on order of steps above
   const handleCallback = (data: CallBackProps) => {
     const { action, index, type, status } = data;
-    // console.log(data);
 
     if (action === "reset" || action === "close" || status === "finished") {
       // End and reset walkthrough

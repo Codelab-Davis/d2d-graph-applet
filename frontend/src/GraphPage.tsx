@@ -24,10 +24,8 @@ function GraphPage(props: {substrateData:Map<string, number[]>, visible:Boolean}
         }
         const group = [substrateDataNames[i], substrateDataNames[i+1], substrateDataNames[i+2]];
         currGroup.push(group);
-        console.log(currGroup)
     }
     substrateDataGroups.push(currGroup);
-    console.log(substrateDataGroups)
 
     if (props.visible){
         return (

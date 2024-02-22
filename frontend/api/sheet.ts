@@ -3,7 +3,6 @@ import PublicGoogleSheetsParser from 'public-google-sheets-parser';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
     const { sheetId } = req.query;
-    console.log(sheetId);
     const parser = new PublicGoogleSheetsParser();
 
     try {

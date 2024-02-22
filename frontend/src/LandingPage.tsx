@@ -140,7 +140,6 @@ function LandingPage(
         })
         .then(response => response.json())
         .then(data => {
-          console.log("data", data)
           // Check shape of data
           if(Object.keys(data).length === 0) {
             setIsValidSheet(false);
