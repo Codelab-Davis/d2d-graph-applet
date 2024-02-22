@@ -120,7 +120,6 @@ function LandingPage(
 
     const [sheetId, setSheetId] = useState("");
     const [isValidSheet, setIsValidSheet] = useState(true);
-    const parser = new PublicGoogleSheetsParser();
 
     // const [sheetURL, setSheetURL] = useState("");
     /*
