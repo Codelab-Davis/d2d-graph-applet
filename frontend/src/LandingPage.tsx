@@ -102,6 +102,8 @@ function getRates() {
     return allRateData;
 }
 
+
+
 function LandingPage(
   props: {
     rateTableRef: React.MutableRefObject<null>,
@@ -117,6 +119,7 @@ function LandingPage(
 
     const [sheetId, setSheetId] = useState("");
     const [isValidSheet, setIsValidSheet] = useState(true);
+
     // const [sheetURL, setSheetURL] = useState("");
     /*
     * click performs the API call to get the data from the google sheets
@@ -129,17 +132,20 @@ function LandingPage(
       }
       else {
         setIsValidSheet(true);
-        fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
+        // fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
+        //   method: "GET"
+        // })
+        fetch(`https://d2d-graph-applet.vercel.app/api/sheet?sheetId=${sheetId}`, {
           method: "GET"
         })
         .then(response => response.json())
-        // check if data is empty (ie empty sheet was given)
         .then(data => {
-          if(Object.keys(data.data).length === 0) {
+          // Check shape of data
+          if(Object.keys(data).length === 0) {
             setIsValidSheet(false);
             throw new Error('empty sheet');
           }
-          getData(data.data);
+          getData(data);
           props.setSubstrateData(substrateData);
           props.setRateData(getRates());
           props.setVisibility(true);
@@ -153,6 +159,7 @@ function LandingPage(
             }))
           }
         })
+
         .catch(error => {
           console.error(error)
         })
@@ -185,7 +192,7 @@ function LandingPage(
                 <h1 className="mb-[3%] text-white font-manrope leading-normal">ENZYME RATE CALCULATOR</h1>
                 <p className="mb-[1%] text-white text-[21px]">Please insert a valid spreadsheet URL</p>
                 <div className="flex justify-between items-center self-center bg-white dark:bg-grays-700 h-[67px] md:w-[608px] sm:w-[80%] rounded-[40px]">
-                  {isValidSheet ? <input id="url-input" onChange={change} className="grow ml-[20px] py-[11px] rounded-md font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input> 
+                  {isValidSheet ? <input id="url-input" onChange={change} className="grow ml-[20px] py-[11px] rounded-md font-manrope font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>
                    : <input id="url-input" onChange={change} className="grow ml-[20px] py-[11px] font-manrope border-2 rounded-md border-red-1 font-medium text-base placeholder-grays-600 focus:outline-none bg-transparent dark:text-[#f2f2f2]" placeholder='Paste URL'></input>}
                   <button id="calculate-button" onClick={click} className="mx-[10px] px-[21px] py-[11px] bg-secondary-600 hover:bg-secondary-700 rounded-[30px] text-base font-semibold font-manrope text-white">Calculate</button>
                 </div>
