@@ -137,30 +137,32 @@ function LandingPage(
         // fetch(`https://api.fureweb.com/spreadsheets/${sheetId}`, {
         //   method: "GET"
         // })
-        // .then(response => response.json())
-        // check if data is empty (ie empty sheet was given)
-        parser.parse(sheetId)
-        .then(data => {
-            console.log("data", data)
-          // Check shape of data
-          // if(Object.keys(data.data).length === 0) {
-          //   setIsValidSheet(false);
-          //   throw new Error('empty sheet');
-          // }
-          // getData(data.data);
-          // props.setSubstrateData(substrateData);
-          // props.setRateData(getRates());
-          // props.setVisibility(true);
-          // if (props.joyrideState.tourActive) {
-          //   // Progress through walkthrough after pause
-          //   // Note: hardcoded stepIndex based on steps in Walkthrough.tsx
-          //   props.setJoyrideState(prevState => ({
-          //     ...prevState,
-          //     run: true,
-          //     stepIndex: 3
-          //   }))
-          // }
+        fetch(`https://d2d-graph-applet.vercel.app/api/sheet?sheetId=${sheetId}`, {
+          method: "GET"
         })
+        .then(response => response.json())
+        .then(data => {
+          console.log("data", data)
+          // Check shape of data
+          if(Object.keys(data).length === 0) {
+            setIsValidSheet(false);
+            throw new Error('empty sheet');
+          }
+          getData(data);
+          props.setSubstrateData(substrateData);
+          props.setRateData(getRates());
+          props.setVisibility(true);
+          if (props.joyrideState.tourActive) {
+            // Progress through walkthrough after pause
+            // Note: hardcoded stepIndex based on steps in Walkthrough.tsx
+            props.setJoyrideState(prevState => ({
+              ...prevState,
+              run: true,
+              stepIndex: 3
+            }))
+          }
+        })
+
         .catch(error => {
           console.error(error)
         })
