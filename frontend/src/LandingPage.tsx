@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { JoyrideState } from './Types';
-import PublicGoogleSheetsParser from 'public-google-sheets-parser';
 
 const substrateData = new Map<string, number[]>();
 
